@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klarity.sa — Data Streams, Clear Impact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #00D4E8;
+    --teal: #00B4C8;
+    --blue-mid: #3A7BD5;
+    --purple: #6B4FBB;
+    --navy: #0D1B3E;
+    --navy-card: #162040;
+    --light-bg: #F4F7FF;
+    --light-bg2: #EBF0FB;
+    --light-card: #FFFFFF;
+    --light-border: #E2E8F5;
+    --dark-text: #0D1B3E;
+    --mid-text: #4A5A7A;
+    --soft-text: #7A8AAA;
+    --grad: linear-gradient(135deg, var(--cyan) 0%, var(--blue-mid) 50%, var(--purple) 100%);
+    --grad-text: linear-gradient(90deg, var(--cyan) 0%, var(--blue-mid) 55%, var(--purple) 100%);
+    --grad-text-dark: linear-gradient(90deg, #0096A8 0%, var(--blue-mid) 55%, var(--purple) 100%);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;background:var(--light-bg)}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:rgba(13,27,62,0.93);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,212,232,0.12);transition:all .3s}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .nav-logo svg{width:36px;height:36px}
+  .nav-logo-text{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .nav-links{display:flex;gap:36px;list-style:none}
+  .nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.9rem;font-weight:400;transition:color .2s;letter-spacing:.02em}
+  .nav-links a:hover{color:var(--cyan)}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .btn-ghost{padding:9px 22px;border-radius:8px;border:1px solid rgba(0,212,232,.3);color:rgba(255,255,255,.8);font-size:.875rem;font-family:'DM Sans',sans-serif;cursor:pointer;background:transparent;transition:all .2s}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);background:rgba(0,212,232,.07)}
+  .btn-primary{padding:9px 22px;border-radius:8px;border:none;background:var(--grad);color:#fff;font-size:.875rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:opacity .2s,transform .2s}
+  .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+
+  /* HERO — DARK */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 60px 100px;overflow:hidden;background:var(--navy);color:#fff}
+  .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,232,.14) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(107,79,187,.12) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .hero-wave{position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:2}
+  .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;border:1px solid rgba(0,212,232,.3);background:rgba(0,212,232,.08);font-size:.78rem;color:var(--cyan);font-weight:500;margin-bottom:24px;letter-spacing:.06em;text-transform:uppercase}
+  .hero-badge::before{content:'';width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero-title{font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:24px;color:#fff}
+  .hero-title .grad-word{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .hero-sub{color:rgba(255,255,255,.72);font-size:1.05rem;font-weight:300;max-width:480px;margin-bottom:40px;line-height:1.75}
+  .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .btn-hero{padding:14px 30px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all .25s}
+  .btn-hero.primary{background:var(--grad);color:white;border:none;box-shadow:0 8px 28px rgba(0,212,232,.28)}
+  .btn-hero.primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,232,.38)}
+  .btn-hero.outline{background:transparent;border:1px solid rgba(255,255,255,.22);color:white}
+  .btn-hero.outline:hover{border-color:var(--cyan);background:rgba(0,212,232,.07)}
+  .hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:32px;border-top:1px solid rgba(255,255,255,.09)}
+  .stat-item .num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .stat-item .label{font-size:.8rem;color:rgba(255,255,255,.38);margin-top:2px;letter-spacing:.03em}
+
+  /* Hero visual */
+  .hero-visual{display:flex;align-items:center;justify-content:center;position:relative}
+  .hero-k-wrap{position:relative;width:320px;height:320px}
+  .hero-k-glow{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(0,212,232,.18) 0%,rgba(107,79,187,.1) 50%,transparent 70%);border-radius:50%;animation:breathe 4s ease-in-out infinite}
+  @keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.7}}
+  .hero-k-ring{position:absolute;inset:20px;border-radius:50%;border:1px solid rgba(0,212,232,.15);animation:spin 20s linear infinite}
+  .hero-k-ring::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}
+  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+  .hero-k-svg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .float-card{position:absolute;background:rgba(22,32,64,.92);backdrop-filter:blur(12px);border:1px solid rgba(0,212,232,.18);border-radius:12px;padding:12px 16px;font-size:.78rem;white-space:nowrap;animation:float 4s ease-in-out infinite;color:#fff}
+  .float-card:nth-child(2){animation-delay:-1.3s}
+  .float-card:nth-child(3){animation-delay:-2.6s}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .float-card .fc-label{color:rgba(255,255,255,.38);font-size:.7rem;margin-bottom:2px}
+  .float-card .fc-val{color:var(--cyan);font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
+  .fc-top-right{top:20px;right:-30px}
+  .fc-bottom-left{bottom:40px;left:-50px}
+  .fc-mid-right{top:50%;right:-60px;transform:translateY(-50%)}
+
+  /* LOGOS — LIGHT */
+  .logos-strip{background:var(--light-bg);padding:44px 0;border-bottom:1px solid var(--light-border)}
+  .logos-label{text-align:center;font-size:.78rem;color:var(--soft-text);letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px}
+  .logos-track{display:flex;gap:60px;align-items:center;animation:scroll-left 18s linear infinite;width:max-content}
+  @keyframes scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .logo-item{font-family:'Syne',sans-serif;font-weight:600;font-size:1rem;color:#b0bcd6;white-space:nowrap;letter-spacing:.04em}
+
+  /* HOW IT WORKS — LIGHT */
+  .how{background:var(--light-bg);padding:100px 0 120px;position:relative}
+  .how-wave{position:absolute;bottom:-2px;left:0;right:0;line-height:0}
+  .how-header{text-align:center;margin-bottom:70px}
+  .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .step-card{background:var(--light-card);border:1px solid var(--light-border);border-radius:20px;padding:40px 32px;transition:box-shadow .3s,transform .3s;position:relative;overflow:hidden}
+  .step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .3s}
+  .step-card:hover{box-shadow:0 12px 40px rgba(58,123,213,.1);transform:translateY(-4px)}
+  .step-card:hover::before{opacity:1}
+  .step-num{font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.18;line-height:1;margin-bottom:18px}
+  .step-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(0,212,232,.1) 0%,rgba(107,79,187,.08) 100%);border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .step-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--dark-text);margin-bottom:10px}
+  .step-desc{color:var(--mid-text);font-size:.9rem;line-height:1.7;font-weight:300}
+
+  /* FEATURES — LIGHT ALT */
+  .features{background:var(--light-bg2);padding:120px 0;position:relative}
+  .features-wave-bottom{position:absolute;bottom:-2px;left:0;right:0;line-height:0}
+  .features-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .features-left{position:sticky;top:100px}
+  .feature-list{display:flex;flex-direction:column;gap:6px;margin-top:36px}
+  .feature-item{padding:20px 22px;border-radius:14px;border:1px solid transparent;cursor:pointer;transition:all .25s;background:transparent;position:relative}
+  .feature-item:hover{background:var(--light-card);border-color:var(--light-border)}
+  .feature-item.active{background:var(--light-card);border-color:rgba(0,180,200,.3);box-shadow:0 4px 20px rgba(58,123,213,.08)}
+  .feature-item.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;background:var(--grad);border-radius:3px}
+  .fi-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .fi-icon{width:36px;height:36px;border-radius:8px;background:linear-gradient(135deg,rgba(0,212,232,.12) 0%,rgba(107,79,187,.08) 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(0,212,232,.18)}
+  .fi-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.95rem;color:var(--dark-text)}
+  .fi-desc{color:var(--mid-text);font-size:.85rem;line-height:1.65;font-weight:300;padding-left:50px}
+
+  /* Dashboard mock */
+  .dashboard-mock{background:var(--navy-card);border:1px solid rgba(0,212,232,.14);border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(13,27,62,.18)}
+  .mock-bar{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07);padding:14px 20px;display:flex;align-items:center;gap:8px}
+  .mock-dot{width:10px;height:10px;border-radius:50%}
+  .mock-body{padding:24px}
+  .mock-metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+  .mock-metric{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+  .mm-label{font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:4px;letter-spacing:.05em}
+  .mm-val{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .mm-change{font-size:.68rem;color:#00e096;margin-top:3px}
+  .mock-chart{background:rgba(255,255,255,.03);border-radius:12px;padding:16px;height:120px;display:flex;align-items:flex-end;gap:6px;overflow:hidden}
+  .chart-bar{flex:1;border-radius:4px 4px 0 0;background:var(--grad);opacity:.65;min-height:8px;transition:opacity .2s}
+  .chart-bar:hover{opacity:1}
+
+  /* TESTIMONIALS — DARK */
+  .testimonials{background:var(--navy);padding:110px 0;color:#fff;position:relative}
+  .testimonials-header{text-align:center;margin-bottom:60px}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .testi-card{background:var(--navy-card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:32px;transition:border-color .3s,transform .3s}
+  .testi-card:hover{border-color:rgba(0,212,232,.25);transform:translateY(-4px)}
+  .testi-stars{color:var(--cyan);font-size:.8rem;margin-bottom:16px;letter-spacing:2px}
+  .testi-quote{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.75;font-weight:300;margin-bottom:24px;font-style:italic}
+  .testi-author{display:flex;align-items:center;gap:12px}
+  .testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:#fff}
+  .testi-name{font-weight:500;font-size:.88rem;color:#fff}
+  .testi-role{color:rgba(255,255,255,.38);font-size:.78rem;margin-top:1px}
+
+  /* CTA — LIGHT */
+  .cta-section{background:var(--light-bg);padding:110px 0;text-align:center}
+  .cta-inner{background:var(--light-card);border:1px solid var(--light-border);border-radius:28px;padding:80px 60px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(58,123,213,.08)}
+  .cta-inner::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,212,232,.08) 0%,rgba(107,79,187,.04) 50%,transparent 70%);pointer-events:none}
+  .cta-inner::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+  .cta-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;color:var(--dark-text)}
+  .cta-sub{color:var(--mid-text);font-weight:300;font-size:1rem;max-width:460px;margin:0 auto 36px;line-height:1.75}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-cta-primary{padding:14px 32px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--grad);color:white;border:none;box-shadow:0 8px 28px rgba(0,212,232,.25);transition:all .25s}
+  .btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,232,.35)}
+  .btn-cta-outline{padding:14px 32px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:transparent;border:1px solid var(--light-border);color:var(--dark-text);transition:all .25s}
+  .btn-cta-outline:hover{border-color:var(--blue-mid);color:var(--blue-mid);background:rgba(58,123,213,.04)}
+
+  /* FOOTER — DARK */
+  footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07);padding:60px;color:#fff}
+  .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+  .footer-brand p{color:rgba(255,255,255,.38);font-size:.85rem;font-weight:300;margin-top:14px;line-height:1.65;max-width:240px}
+  .footer-col h4{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:16px;text-transform:uppercase;letter-spacing:.09em}
+  .footer-col ul{list-style:none}
+  .footer-col ul li{margin-bottom:10px}
+  .footer-col ul li a{color:rgba(255,255,255,.38);text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s}
+  .footer-col ul li a:hover{color:var(--cyan)}
+  .footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.3)}
+
+  /* SHARED */
+  .container{max-width:1200px;margin:0 auto;padding:0 60px}
+  .section-tag{display:inline-block;font-size:.73rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:14px}
+  .section-tag.on-dark{color:var(--cyan)}
+  .section-tag.on-light{color:var(--blue-mid)}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
+  .section-title.dark{color:var(--dark-text)}
+  .section-title.light{color:#fff}
+  .section-sub{font-weight:300;font-size:1rem;line-height:1.75}
+  .section-sub.dark{color:var(--mid-text)}
+  .section-sub.light{color:rgba(255,255,255,.65)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    nav{padding:0 20px}
+    .nav-links{display:none}
+    .hero{padding:100px 20px 80px}
+    .hero-inner{grid-template-columns:1fr}
+    .hero-visual{display:none}
+    .container{padding:0 20px}
+    .steps-grid{grid-template-columns:1fr}
+    .features-layout{grid-template-columns:1fr}
+    .features-left{position:static}
+    .testi-grid{grid-template-columns:1fr}
+    .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
+    .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+    footer{padding:40px 20px}
+    .cta-inner{padding:50px 20px}
+    .hero-stats{flex-wrap:wrap;gap:24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="kG" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#00D4E8"/><stop offset=".5" stop-color="#3A7BD5"/><stop offset="1" stop-color="#6B4FBB"/></linearGradient></defs>
+      <path d="M20 10 Q18 10 18 12 L18 88 Q18 90 20 90 L36 90 Q38 90 38 88 L38 58 L68 88 Q70 90 73 90 L84 90 Q88 90 86 87 L52 52 L82 15 Q84 12 80 12 L69 12 Q67 12 65 14 L38 46 L38 12 Q38 10 36 10 Z" fill="url(#kG)"/>
+      <circle cx="72" cy="22" r="4" fill="#00D4E8" opacity=".9"/><circle cx="82" cy="14" r="3" fill="#00D4E8" opacity=".7"/><circle cx="79" cy="30" r="2.5" fill="#00D4E8" opacity=".5"/>
+      <circle cx="72" cy="62" r="4" fill="#6B4FBB" opacity=".9"/><circle cx="81" cy="72" r="3" fill="#6B4FBB" opacity=".7"/>
+    </svg>
+    <span class="nav-logo-text">klarity.sa</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-ghost">Log in</button>
+    <button class="btn-primary">Get Started →</button>
+  </div>
+</nav>
+
+<!-- HERO — DARK -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Now live in Saudi Arabia 🇸🇦</div>
+      <h1 class="hero-title">Data Streams,<br><span class="grad-word">Clear Impact.</span></h1>
+      <p class="hero-sub">Klarity transforms complex data flows into actionable intelligence — giving your business the clarity to move faster, decide smarter, and grow with confidence.</p>
+      <div class="hero-actions">
+        <button class="btn-hero primary">Start Free Trial</button>
+        <button class="btn-hero outline">▶ Watch Demo</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="num">500+</div><div class="label">Clients served</div></div>
+        <div class="stat-item"><div class="num">99.9%</div><div class="label">Uptime SLA</div></div>
+        <div class="stat-item"><div class="num">3.2×</div><div class="label">Avg. ROI boost</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-k-wrap">
+        <div class="hero-k-glow"></div>
+        <div class="hero-k-ring"></div>
+        <div class="hero-k-svg">
+          <svg width="220" height="220" viewBox="0 0 100 100" fill="none">
+            <defs>
+              <linearGradient id="kG2" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#00D4E8"/><stop offset=".5" stop-color="#3A7BD5"/><stop offset="1" stop-color="#6B4FBB"/></linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="2" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <path d="M20 10 Q18 10 18 12 L18 88 Q18 90 20 90 L36 90 Q38 90 38 88 L38 58 L68 88 Q70 90 73 90 L84 90 Q88 90 86 87 L52 52 L82 15 Q84 12 80 12 L69 12 Q67 12 65 14 L38 46 L38 12 Q38 10 36 10 Z" fill="url(#kG2)" filter="url(#glow)"/>
+            <circle cx="72" cy="22" r="4.5" fill="#00D4E8" filter="url(#glow)"/>
+            <circle cx="83" cy="13" r="3.5" fill="#00D4E8" opacity=".8"/>
+            <circle cx="80" cy="32" r="2.5" fill="#00D4E8" opacity=".6"/>
+            <circle cx="72" cy="62" r="4.5" fill="#6B4FBB" filter="url(#glow)"/>
+            <circle cx="82" cy="73" r="3.5" fill="#6B4FBB" opacity=".8"/>
+          </svg>
+        </div>
+        <div class="float-card fc-top-right"><div class="fc-label">Throughput</div><div class="fc-val">12.4k/s</div></div>
+        <div class="float-card fc-bottom-left"><div class="fc-label">Latency</div><div class="fc-val">4ms</div></div>
+        <div class="float-card fc-mid-right"><div class="fc-label">Accuracy</div><div class="fc-val">99.7%</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/>
+    </svg>
+  </div>
+</section>
+
+<!-- LOGOS — LIGHT -->
+<div class="logos-strip">
+  <div class="container">
+    <div class="logos-label">Trusted by forward-thinking businesses across the Kingdom</div>
+    <div style="overflow:hidden">
+      <div class="logos-track">
+        <span class="logo-item">Saudi Aramco</span><span class="logo-item">SABIC</span><span class="logo-item">STC Solutions</span><span class="logo-item">Mobily</span><span class="logo-item">Al Rajhi Bank</span><span class="logo-item">NEOM</span><span class="logo-item">Vision 2030</span><span class="logo-item">PIF</span>
+        <span class="logo-item">Saudi Aramco</span><span class="logo-item">SABIC</span><span class="logo-item">STC Solutions</span><span class="logo-item">Mobily</span><span class="logo-item">Al Rajhi Bank</span><span class="logo-item">NEOM</span><span class="logo-item">Vision 2030</span><span class="logo-item">PIF</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS — LIGHT -->
+<section class="how" id="how">
+  <div class="container">
+    <div class="how-header reveal">
+      <span class="section-tag on-light">How it works</span>
+      <h2 class="section-title dark">From raw data to real decisions<br>in three steps</h2>
+      <p class="section-sub dark" style="max-width:520px;margin:0 auto">No complex setup. No long onboarding. Klarity plugs into your existing infrastructure and delivers insight from day one.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-num">01</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div class="step-title">Connect Your Sources</div>
+        <p class="step-desc">Plug in any data source — databases, APIs, cloud services, IoT sensors — using zero-code connectors. Up and running in minutes, not weeks.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.12s">
+        <div class="step-num">02</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <div class="step-title">AI Processes & Enriches</div>
+        <p class="step-desc">Our AI pipeline cleans, normalizes, and enriches your data streams in real time — detecting anomalies, patterns, and correlations automatically.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.24s">
+        <div class="step-num">03</div>
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <div class="step-title">Act on Clear Insights</div>
+        <p class="step-desc">Live dashboards, smart alerts, and AI-generated reports surface exactly what matters — so your team can act fast, not just analyze endlessly.</p>
+      </div>
+    </div>
+  </div>
+  <div class="how-wave">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block">
+      <path d="M0,20 C480,60 960,0 1440,20 L1440,60 L0,60 Z" fill="#EBF0FB"/>
+    </svg>
+  </div>
+</section>
+
+<!-- FEATURES — LIGHT ALT -->
+<section class="features" id="features">
+  <div class="container" style="position:relative;z-index:1">
+    <div class="features-layout">
+      <div class="features-left reveal">
+        <span class="section-tag on-light">Platform Features</span>
+        <h2 class="section-title dark">Everything you need for total data clarity</h2>
+        <p class="section-sub dark" style="max-width:400px">Klarity is built for speed, scale, and simplicity — from solo analysts to enterprise data teams.</p>
+        <div class="feature-list">
+          <div class="feature-item active">
+            <div class="fi-head"><div class="fi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="fi-title">Real-Time Stream Processing</div></div>
+            <p class="fi-desc">Process millions of events per second with sub-5ms latency using our distributed streaming engine.</p>
+          </div>
+          <div class="feature-item">
+            <div class="fi-head"><div class="fi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="fi-title">Intelligent Dashboards</div></div>
+            <p class="fi-desc">Auto-generated, drag-and-drop dashboards that surface the right KPIs without manual configuration.</p>
+          </div>
+          <div class="feature-item">
+            <div class="fi-head"><div class="fi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div><div class="fi-title">Smart Anomaly Detection</div></div>
+            <p class="fi-desc">ML models learn your baselines and alert you the moment something unusual occurs — before it becomes a crisis.</p>
+          </div>
+          <div class="feature-item">
+            <div class="fi-head"><div class="fi-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="fi-title">Automated Reporting</div></div>
+            <p class="fi-desc">Scheduled, AI-narrated reports delivered to your inbox or Slack — in Arabic or English.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <div class="dashboard-mock">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#ff5f57"></div><div class="mock-dot" style="background:#febc2e"></div><div class="mock-dot" style="background:#28c840"></div>
+            <span style="margin-left:12px;font-size:.75rem;color:rgba(255,255,255,.3)">klarity.sa — Live Dashboard</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-metric-row">
+              <div class="mock-metric"><div class="mm-label">EVENTS TODAY</div><div class="mm-val">4.2M</div><div class="mm-change">↑ 18% vs yesterday</div></div>
+              <div class="mock-metric"><div class="mm-label">AVG LATENCY</div><div class="mm-val">3.8ms</div><div class="mm-change">↓ 0.4ms improvement</div></div>
+              <div class="mock-metric"><div class="mm-label">ANOMALIES</div><div class="mm-val">2</div><div class="mm-change" style="color:#ff6b6b">⚠ Needs review</div></div>
+            </div>
+            <div class="mock-chart">
+              <div class="chart-bar" style="height:40%"></div><div class="chart-bar" style="height:65%"></div><div class="chart-bar" style="height:50%"></div><div class="chart-bar" style="height:80%"></div><div class="chart-bar" style="height:60%"></div><div class="chart-bar" style="height:90%"></div><div class="chart-bar" style="height:70%"></div><div class="chart-bar" style="height:85%"></div><div class="chart-bar" style="height:95%"></div><div class="chart-bar" style="height:75%"></div><div class="chart-bar" style="height:100%"></div><div class="chart-bar" style="height:88%"></div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:10px">
+              <div style="flex:1;background:rgba(255,255,255,.04);border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.07)">
+                <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:6px">TOP DATA SOURCES</div>
+                <div style="font-size:.8rem;color:rgba(255,255,255,.7);display:flex;flex-direction:column;gap:5px">
+                  <span>● CRM Pipeline <span style="color:#00D4E8;float:right">38%</span></span>
+                  <span>● IoT Sensors <span style="color:#3A7BD5;float:right">27%</span></span>
+                  <span>● ERP Events <span style="color:#6B4FBB;float:right">19%</span></span>
+                </div>
+              </div>
+              <div style="flex:1;background:rgba(0,212,232,.06);border-radius:8px;padding:12px;border:1px solid rgba(0,212,232,.14)">
+                <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:6px">AI INSIGHT</div>
+                <div style="font-size:.78rem;color:rgba(255,255,255,.72);line-height:1.5">Revenue anomaly detected in Riyadh region — up 34% above model forecast.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="features-wave-bottom">
+    <svg viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block">
+      <path d="M0,30 C360,0 1080,60 1440,30 L1440,60 L0,60 Z" fill="#0D1B3E"/>
+    </svg>
+  </div>
+</section>
+
+<!-- TESTIMONIALS — DARK -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="section-tag on-dark">Client Stories</span>
+      <h2 class="section-title light">Real results, across the Kingdom</h2>
+      <p class="section-sub light" style="max-width:500px;margin:0 auto">Businesses across Saudi Arabia use Klarity to cut reporting time, catch anomalies early, and make decisions with confidence.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Klarity cut our reporting time by 80%. What used to take our data team a week now runs automatically every morning — and the insights are sharper than ever."</p>
+        <div class="testi-author"><div class="testi-avatar">FA</div><div><div class="testi-name">Faris Al-Rashidi</div><div class="testi-role">Head of Analytics, STC Solutions</div></div></div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.15s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The anomaly detection alone saved us millions. Klarity flagged an unusual pattern in our supply chain three hours before it caused a production halt."</p>
+        <div class="testi-author"><div class="testi-avatar">NA</div><div><div class="testi-name">Noura Al-Hamdan</div><div class="testi-role">VP Operations, SABIC</div></div></div>
+      </div>
+      <div class="testi-card reveal" style="transition-delay:.3s">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"Finally a data platform built for Saudi enterprises — Arabic support, local compliance, and world-class performance. Klarity is exactly what Vision 2030 needs."</p>
+        <div class="testi-author"><div class="testi-avatar">KM</div><div><div class="testi-name">Khalid Al-Musa</div><div class="testi-role">CTO, Digital Ventures, PIF</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA — LIGHT -->
+<section class="cta-section" id="pricing">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Ready for<br><span style="background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">total data clarity?</span></h2>
+      <p class="cta-sub">Start your 14-day free trial — no credit card required. Full platform access from day one.</p>
+      <div class="cta-actions">
+        <button class="btn-cta-primary">Start Free Trial →</button>
+        <button class="btn-cta-outline">Talk to Sales</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — DARK -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px">
+        <svg width="32" height="32" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="fG" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse"><stop stop-color="#00D4E8"/><stop offset="1" stop-color="#6B4FBB"/></linearGradient></defs><path d="M20 10 Q18 10 18 12 L18 88 Q18 90 20 90 L36 90 Q38 90 38 88 L38 58 L68 88 Q70 90 73 90 L84 90 Q88 90 86 87 L52 52 L82 15 Q84 12 80 12 L69 12 Q67 12 65 14 L38 46 L38 12 Q38 10 36 10 Z" fill="url(#fG)"/><circle cx="72" cy="22" r="4" fill="#00D4E8" opacity=".9"/><circle cx="72" cy="62" r="4" fill="#6B4FBB" opacity=".9"/></svg>
+        <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">klarity.sa</span>
+      </div>
+      <p>Data Streams, Clear Impact. Empowering Saudi Arabia's digital future with intelligent data infrastructure.</p>
+    </div>
+    <div class="footer-col"><h4>Product</h4><ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li><li><a href="#">Integrations</a></li><li><a href="#">Changelog</a></li><li><a href="#">Status</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Documentation</a></li><li><a href="#">API Reference</a></li><li><a href="#">Community</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Klarity.sa — All rights reserved</span>
+    <span>Made with clarity 🇸🇦</span>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)} });
+  }, {threshold:0.1});
+  reveals.forEach(r => observer.observe(r));
+
+  document.querySelectorAll('.feature-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.feature-item').forEach(i => i.classList.remove('active'));
+      item.classList.add('active');
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('main-nav');
+    nav.style.background = window.scrollY > 50 ? 'rgba(13,27,62,0.98)' : 'rgba(13,27,62,0.93)';
+    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.25)' : 'none';
+  });
+</script>
+</body>
+</html>
