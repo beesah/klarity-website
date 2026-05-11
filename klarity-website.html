@@ -162,17 +162,17 @@
   .chart-bar:hover{opacity:1}
 
   /* TESTIMONIALS — DARK */
-  .testimonials{background:var(--navy);padding:110px 0;color:#fff;position:relative}
+  .testimonials{background:var(--light-bg);padding:110px 0;color:var(--dark-text);position:relative}
   .testimonials-header{text-align:center;margin-bottom:60px}
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .testi-card{background:var(--navy-card);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:32px;transition:border-color .3s,transform .3s}
-  .testi-card:hover{border-color:rgba(0,212,232,.25);transform:translateY(-4px)}
+  .testi-card{background:#fff;border:1px solid var(--light-border);border-radius:18px;padding:32px;transition:border-color .3s,transform .3s,box-shadow .3s}
+  .testi-card:hover{border-color:rgba(0,180,200,.35);transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,180,200,.1)}
   .testi-stars{color:var(--cyan);font-size:.8rem;margin-bottom:16px;letter-spacing:2px}
-  .testi-quote{color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.75;font-weight:300;margin-bottom:24px;font-style:italic}
+  .testi-quote{color:var(--mid-text);font-size:.9rem;line-height:1.75;font-weight:300;margin-bottom:24px;font-style:italic}
   .testi-author{display:flex;align-items:center;gap:12px}
   .testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.85rem;color:#fff}
-  .testi-name{font-weight:500;font-size:.88rem;color:#fff}
-  .testi-role{color:rgba(255,255,255,.38);font-size:.78rem;margin-top:1px}
+  .testi-name{font-weight:500;font-size:.88rem;color:var(--dark-text)}
+  .testi-role{color:var(--soft-text);font-size:.78rem;margin-top:1px}
 
   /* CTA — LIGHT */
   .cta-section{background:var(--light-bg);padding:110px 0;text-align:center}
@@ -577,9 +577,9 @@
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="testimonials-header reveal">
-      <span class="section-tag on-dark">Client Stories</span>
-      <h2 class="section-title light">Real results, across the Kingdom</h2>
-      <p class="section-sub light" style="max-width:500px;margin:0 auto">Businesses across Saudi Arabia use Klarity to improve operational decision making, catch anomalies early, and enhance productivity with data intelligence.</p>
+      <span class="section-tag on-light">Client Stories</span>
+      <h2 class="section-title dark">Real results, across the Kingdom</h2>
+      <p class="section-sub dark" style="max-width:500px;margin:0 auto">Businesses across Saudi Arabia use Klarity to improve operational decision making, catch anomalies early, and enhance productivity with data intelligence.</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card reveal">
