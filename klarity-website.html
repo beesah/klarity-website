@@ -70,46 +70,35 @@
   .di-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:600;color:var(--dark-text);margin-bottom:6px}
   .di-card-desc{font-size:.855rem;color:var(--mid-text);line-height:1.65;margin:0}
 
-  /* HERO — DARK */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 60px 100px;overflow:hidden;background:var(--navy-mid);color:#fff}
-  .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,232,.14) 0%,transparent 65%);border-radius:50%;pointer-events:none}
-  .hero::after{content:'';position:absolute;bottom:-150px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(107,79,187,.12) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  /* HERO — FULL SCREEN */
+  .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 60px 130px;overflow:hidden;background:#0b1a35;color:#fff;text-align:center}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,232,.045) 1px,transparent 1px);background-size:64px 64px;animation:grid-drift 28s linear infinite;pointer-events:none}
+  @keyframes grid-drift{0%{transform:translateY(0)}100%{transform:translateY(64px)}}
+  .hero-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,212,232,.0) 15%,rgba(0,212,232,.55) 50%,rgba(0,212,232,.0) 85%,transparent 100%);box-shadow:0 0 22px 6px rgba(0,212,232,.15);animation:scan-line 7s linear infinite;pointer-events:none;z-index:0}
+  @keyframes scan-line{0%{top:-4%}100%{top:104%}}
+  .hero::before{content:'';position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,232,.13) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-15%;left:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(107,79,187,.11) 0%,transparent 65%);border-radius:50%;pointer-events:none}
   .hero-wave{position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:2}
-  .hero-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;border:1px solid rgba(0,212,232,.3);background:rgba(0,212,232,.08);font-size:.78rem;color:var(--cyan);font-weight:500;margin-bottom:24px;letter-spacing:.06em;text-transform:uppercase}
+  .hero-inner{position:relative;z-index:1;max-width:820px;margin:0 auto;width:100%}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;border:1px solid rgba(0,212,232,.3);background:rgba(0,212,232,.08);font-size:.78rem;color:var(--cyan);font-weight:500;margin-bottom:28px;letter-spacing:.08em;text-transform:uppercase}
   .hero-badge::before{content:'';width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 8px var(--cyan);animation:pulse 2s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  .hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:24px;color:#fff}
+  .hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.6rem,5.5vw,4.4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:26px;color:#fff}
   .hero-title .grad-word{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .hero-sub{color:rgba(255,255,255,.72);font-size:1.05rem;font-weight:300;max-width:480px;margin-bottom:40px;line-height:1.75}
-  .hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-  .btn-hero{padding:14px 30px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all .25s}
+  .hero-sub{color:rgba(255,255,255,.7);font-size:1.1rem;font-weight:300;max-width:580px;margin:0 auto 44px;line-height:1.8}
+  .hero-actions{display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .btn-hero{padding:15px 34px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:all .25s}
   .btn-hero.primary{background:var(--grad);color:white;border:none;box-shadow:0 8px 28px rgba(0,212,232,.28)}
-  .btn-hero.primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,232,.38)}
-  .btn-hero.outline{background:transparent;border:1px solid rgba(255,255,255,.22);color:white}
-  .btn-hero.outline:hover{border-color:var(--cyan);background:rgba(0,212,232,.07)}
-  .hero-stats{display:flex;gap:40px;margin-top:52px;padding-top:32px;border-top:1px solid rgba(255,255,255,.09)}
-  .stat-item .num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .stat-item .label{font-size:.8rem;color:rgba(255,255,255,.38);margin-top:2px;letter-spacing:.03em}
-
-  /* Hero visual */
-  .hero-visual{display:flex;align-items:center;justify-content:center;position:relative}
-  .hero-k-wrap{position:relative;width:320px;height:320px}
-  .hero-k-glow{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(0,212,232,.18) 0%,rgba(107,79,187,.1) 50%,transparent 70%);border-radius:50%;animation:breathe 4s ease-in-out infinite}
-  @keyframes breathe{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.1);opacity:.7}}
-  .hero-k-ring{position:absolute;inset:20px;border-radius:50%;border:1px solid rgba(0,212,232,.15);animation:spin 20s linear infinite}
-  .hero-k-ring::before{content:'';position:absolute;top:-3px;left:50%;width:6px;height:6px;background:var(--cyan);border-radius:50%;box-shadow:0 0 12px var(--cyan)}
-  @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-  .hero-k-svg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
-  .float-card{position:absolute;background:rgba(22,32,64,.92);backdrop-filter:blur(12px);border:1px solid rgba(0,212,232,.18);border-radius:12px;padding:12px 16px;font-size:.78rem;white-space:nowrap;animation:float 4s ease-in-out infinite;color:#fff}
-  .float-card:nth-child(2){animation-delay:-1.3s}
-  .float-card:nth-child(3){animation-delay:-2.6s}
-  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-  .float-card .fc-label{color:rgba(255,255,255,.38);font-size:.7rem;margin-bottom:2px}
-  .float-card .fc-val{color:var(--cyan);font-family:'Syne',sans-serif;font-weight:700;font-size:1rem}
-  .fc-top-right{top:20px;right:-30px}
-  .fc-bottom-left{bottom:40px;left:-50px}
-  .fc-mid-right{top:50%;right:-60px;transform:translateY(-50%)}
+  .btn-hero.primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,232,.42)}
+  .hero-alert{position:absolute;z-index:1;display:flex;align-items:center;gap:10px;background:rgba(10,22,50,.88);backdrop-filter:blur(16px);border:1px solid rgba(0,212,232,.2);border-radius:12px;padding:11px 18px;font-size:.78rem;color:rgba(255,255,255,.82);white-space:nowrap;animation:float-ud 5s ease-in-out infinite}
+  .hero-alert .ha-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+  .hero-alert .ha-label{color:rgba(255,255,255,.42);font-size:.7rem;display:block;margin-bottom:1px}
+  .hero-alert .ha-val{font-family:'Syne',sans-serif;font-weight:600;font-size:.82rem}
+  .ha-1{top:22%;left:5%;animation-delay:0s}
+  .ha-2{top:26%;right:5%;animation-delay:-1.8s}
+  .ha-3{bottom:24%;left:5%;animation-delay:-3.2s}
+  .ha-4{bottom:28%;right:5%;animation-delay:-4.6s}
+  @keyframes float-ud{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
   /* LOGOS — LIGHT */
   .logos-strip{background:var(--light-bg);padding:44px 0 72px;position:relative}
@@ -303,24 +292,20 @@
   </div>
 </nav>
 
-<!-- HERO — DARK -->
+<!-- HERO — FULL SCREEN -->
 <section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-alert ha-1"><div class="ha-dot" style="background:#f59e0b"></div><div><span class="ha-label">Zone 3 — Assembly Bay</span><span class="ha-val">⚠ Idle &gt; 14 min</span></div></div>
+  <div class="hero-alert ha-2"><div class="ha-dot" style="background:#10b981"></div><div><span class="ha-label">Throughput</span><span class="ha-val">✓ 12.4k units / hr</span></div></div>
+  <div class="hero-alert ha-3"><div class="ha-dot" style="background:#00D4E8;box-shadow:0 0 6px #00D4E8"></div><div><span class="ha-label">Live cameras</span><span class="ha-val">● 8 feeds active</span></div></div>
+  <div class="hero-alert ha-4"><div class="ha-dot" style="background:#ef4444"></div><div><span class="ha-label">Safety alert</span><span class="ha-val">⚑ Restricted zone breach</span></div></div>
   <div class="hero-inner">
-    <div>
-<h1 class="hero-title">Transforming Data Streams into<br><span class="grad-word">Business Insights.</span></h1>
-      <p class="hero-sub">Data intelligence for enhanced operations and revenue growth across Saudi industries — plug into your existing infrastructure and start making smarter decisions from day one.</p>
-      <div class="hero-actions">
-        <button class="btn-hero primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Demo</button>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-k-wrap">
-        <div class="hero-k-glow"></div>
-        <div class="hero-k-ring"></div>
-        <div class="float-card fc-top-right"><div class="fc-label">Throughput</div><div class="fc-val">12.4k/s</div></div>
-        <div class="float-card fc-bottom-left"><div class="fc-label">Latency</div><div class="fc-val">4ms</div></div>
-        <div class="float-card fc-mid-right"><div class="fc-label">Accuracy</div><div class="fc-val">99.7%</div></div>
-      </div>
+    <div class="hero-badge">Video Intelligence Platform</div>
+    <h1 class="hero-title">Your floor is talking.<br><span class="grad-word">Are you listening?</span></h1>
+    <p class="hero-sub">Klarity turns your existing cameras into a real-time intelligence system — flagging issues, tracking performance, and surfacing insights before they become costly problems.</p>
+    <div class="hero-actions">
+      <button class="btn-hero primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Request a Demo →</button>
     </div>
   </div>
   <div class="hero-wave">
