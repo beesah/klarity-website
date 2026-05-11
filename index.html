@@ -739,17 +739,17 @@
       const card = document.querySelector(link.getAttribute('href'));
       if (!card) return;
       document.querySelectorAll('.nav-links > li').forEach(l => l.classList.remove('open'));
+      history.replaceState(null, '', window.location.pathname);
       scrollToCard(card);
       setTimeout(() => highlightIndustryCard(card), 400);
     });
   });
 
   window.addEventListener('load', () => {
-    const hash = window.location.hash;
-    if (!hash || !hash.startsWith('#industry-')) return;
-    const card = document.querySelector(hash);
-    if (!card) return;
-    setTimeout(() => { scrollToCard(card); highlightIndustryCard(card); }, 300);
+    if (window.location.hash.startsWith('#industry-')) {
+      history.replaceState(null, '', window.location.pathname);
+      window.scrollTo(0, 0);
+    }
   });
 
   document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
