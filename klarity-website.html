@@ -471,29 +471,52 @@
         <div class="dashboard-mock">
           <div class="mock-bar">
             <div class="mock-dot" style="background:#ff5f57"></div><div class="mock-dot" style="background:#febc2e"></div><div class="mock-dot" style="background:#28c840"></div>
-            <span style="margin-left:12px;font-size:.75rem;color:rgba(255,255,255,.3)">klarity.sa — Live Dashboard</span>
+            <span style="margin-left:12px;font-size:.75rem;color:rgba(255,255,255,.3)">Klarity — Video Intelligence</span>
           </div>
           <div class="mock-body">
             <div class="mock-metric-row">
-              <div class="mock-metric"><div class="mm-label">EVENTS TODAY</div><div class="mm-val">4.2M</div><div class="mm-change">↑ 18% vs yesterday</div></div>
-              <div class="mock-metric"><div class="mm-label">AVG LATENCY</div><div class="mm-val">3.8ms</div><div class="mm-change">↓ 0.4ms improvement</div></div>
-              <div class="mock-metric"><div class="mm-label">ANOMALIES</div><div class="mm-val">2</div><div class="mm-change" style="color:#ff6b6b">⚠ Needs review</div></div>
+              <div class="mock-metric"><div class="mm-label">CAMERAS LIVE</div><div class="mm-val">24<span style="font-size:.85rem;opacity:.45">/26</span></div><div class="mm-change" style="color:rgba(255,255,255,.3)">2 offline</div></div>
+              <div class="mock-metric"><div class="mm-label">DETECTIONS TODAY</div><div class="mm-val">1,847</div><div class="mm-change">↑ 12% vs yesterday</div></div>
+              <div class="mock-metric"><div class="mm-label">ACTIVE ALERTS</div><div class="mm-val" style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:#ff6b6b">3</div><div class="mm-change" style="color:#ff6b6b">⚠ Needs review</div></div>
             </div>
-            <div class="mock-chart">
-              <div class="chart-bar" style="height:40%"></div><div class="chart-bar" style="height:65%"></div><div class="chart-bar" style="height:50%"></div><div class="chart-bar" style="height:80%"></div><div class="chart-bar" style="height:60%"></div><div class="chart-bar" style="height:90%"></div><div class="chart-bar" style="height:70%"></div><div class="chart-bar" style="height:85%"></div><div class="chart-bar" style="height:95%"></div><div class="chart-bar" style="height:75%"></div><div class="chart-bar" style="height:100%"></div><div class="chart-bar" style="height:88%"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px">
+              <div style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.08);position:relative;min-height:80px;display:flex;align-items:center;justify-content:center">
+                <div style="position:absolute;top:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:4px"><span style="width:5px;height:5px;border-radius:50%;background:#00e096;display:inline-block;flex-shrink:0"></span>CAM-01 · Bay A</div>
+                <div style="position:absolute;top:5px;right:8px;font-size:.55rem;color:#00e096;border:1px solid rgba(0,224,150,.3);padding:1px 5px;border-radius:3px">LIVE</div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,232,.35)" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <div style="position:absolute;bottom:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.28)">3 persons · clear</div>
+              </div>
+              <div style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;border:1px solid rgba(255,107,107,.3);position:relative;min-height:80px;display:flex;align-items:center;justify-content:center">
+                <div style="position:absolute;top:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:4px"><span style="width:5px;height:5px;border-radius:50%;background:#00e096;display:inline-block;flex-shrink:0"></span>CAM-02 · Entry Gate</div>
+                <div style="position:absolute;top:5px;right:8px;font-size:.55rem;color:#ff6b6b;border:1px solid rgba(255,107,107,.4);padding:1px 5px;border-radius:3px">ALERT</div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,107,107,.55)" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <div style="position:absolute;bottom:6px;left:8px;font-size:.58rem;color:#ff6b6b">Zone violation</div>
+              </div>
+              <div style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;border:1px solid rgba(245,158,11,.25);position:relative;min-height:80px;display:flex;align-items:center;justify-content:center">
+                <div style="position:absolute;top:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:4px"><span style="width:5px;height:5px;border-radius:50%;background:#00e096;display:inline-block;flex-shrink:0"></span>CAM-03 · Warehouse</div>
+                <div style="position:absolute;top:5px;right:8px;font-size:.55rem;color:#f59e0b;border:1px solid rgba(245,158,11,.35);padding:1px 5px;border-radius:3px">WARN</div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(245,158,11,.45)" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <div style="position:absolute;bottom:6px;left:8px;font-size:.58rem;color:#f59e0b">PPE not detected</div>
+              </div>
+              <div style="background:rgba(0,0,0,.4);border-radius:8px;padding:10px;border:1px solid rgba(255,255,255,.08);position:relative;min-height:80px;display:flex;align-items:center;justify-content:center">
+                <div style="position:absolute;top:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:4px"><span style="width:5px;height:5px;border-radius:50%;background:#00e096;display:inline-block;flex-shrink:0"></span>CAM-04 · Floor B</div>
+                <div style="position:absolute;top:5px;right:8px;font-size:.55rem;color:#00e096;border:1px solid rgba(0,224,150,.3);padding:1px 5px;border-radius:3px">LIVE</div>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,232,.35)" stroke-width="1.5"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+                <div style="position:absolute;bottom:6px;left:8px;font-size:.58rem;color:rgba(255,255,255,.28)">7 persons · active</div>
+              </div>
             </div>
-            <div style="margin-top:14px;display:flex;gap:10px">
-              <div style="flex:1;background:rgba(255,255,255,.04);border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.07)">
-                <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:6px">TOP DATA SOURCES</div>
-                <div style="font-size:.8rem;color:rgba(255,255,255,.7);display:flex;flex-direction:column;gap:5px">
-                  <span>● CRM Pipeline <span style="color:#00D4E8;float:right">38%</span></span>
-                  <span>● IoT Sensors <span style="color:#3A7BD5;float:right">27%</span></span>
-                  <span>● ERP Events <span style="color:#6B4FBB;float:right">19%</span></span>
+            <div style="display:flex;gap:10px">
+              <div style="flex:1.2;background:rgba(255,255,255,.03);border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.07)">
+                <div style="font-size:.65rem;color:rgba(255,255,255,.3);letter-spacing:.08em;margin-bottom:8px">RECENT EVENTS</div>
+                <div style="display:flex;flex-direction:column;gap:7px">
+                  <div style="display:flex;justify-content:space-between"><span style="font-size:.72rem;color:rgba(255,255,255,.6)"><span style="color:#ff6b6b">●</span> Zone violation — Entry Gate</span><span style="font-size:.65rem;color:rgba(255,255,255,.25)">14:32</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="font-size:.72rem;color:rgba(255,255,255,.6)"><span style="color:#f59e0b">●</span> PPE missing — Warehouse</span><span style="font-size:.65rem;color:rgba(255,255,255,.25)">14:28</span></div>
+                  <div style="display:flex;justify-content:space-between"><span style="font-size:.72rem;color:rgba(255,255,255,.6)"><span style="color:#00D4E8">●</span> Idle crew — Floor B (18 min)</span><span style="font-size:.65rem;color:rgba(255,255,255,.25)">14:09</span></div>
                 </div>
               </div>
               <div style="flex:1;background:rgba(0,212,232,.06);border-radius:8px;padding:12px;border:1px solid rgba(0,212,232,.14)">
-                <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:6px">AI INSIGHT</div>
-                <div style="font-size:.78rem;color:rgba(255,255,255,.72);line-height:1.5">Revenue anomaly detected in Riyadh region — up 34% above model forecast.</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.35);letter-spacing:.08em;margin-bottom:8px">AI INSIGHT</div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.72);line-height:1.55">Entry Gate activity 2.4× above average. Likely shift change at 14:30. Supervisor auto-notified.</div>
               </div>
             </div>
           </div>
