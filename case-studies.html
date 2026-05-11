@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Klarity</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap"></noscript>
+<style>
+  :root{--cyan:#00D4E8;--teal:#00B4C8;--blue-mid:#3A7BD5;--purple:#6B4FBB;--navy:#0D1B3E;--navy-mid:#1a3260;--navy-card:#1e3a72;--light-bg:#F4F7FF;--light-bg2:#D8E2F5;--light-card:#FFFFFF;--light-border:#E2E8F5;--dark-text:#0D1B3E;--mid-text:#4A5A7A;--soft-text:#7A8AAA;--grad:linear-gradient(135deg,var(--cyan) 0%,var(--blue-mid) 50%,var(--purple) 100%);--grad-text:linear-gradient(90deg,var(--cyan) 0%,var(--blue-mid) 55%,var(--purple) 100%);--grad-text-dark:linear-gradient(90deg,#0096A8 0%,var(--blue-mid) 55%,var(--purple) 100%)}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;background:var(--light-bg)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:transparent;transition:all .3s}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+  .nav-links>li{position:relative}
+  .nav-links>li>a,.nav-dropdown-toggle{color:rgba(255,255,255,.96);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s;letter-spacing:.02em;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:6px;font-family:'DM Sans',sans-serif}
+  .nav-links>li>a:hover,.nav-dropdown-toggle:hover{color:var(--cyan);background:rgba(0,212,232,.06)}
+  .nav-dropdown-toggle svg{width:12px;height:12px;transition:transform .2s;opacity:.6}
+  .nav-links>li.open>.nav-dropdown-toggle svg{transform:rotate(180deg)}
+  .nav-dropdown{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);min-width:220px;background:rgba(255,255,255,0.98);backdrop-filter:blur(24px);border:1px solid rgba(26,50,96,.1);border-radius:12px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.12);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s}
+  .nav-links>li.open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .nav-dropdown a{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:8px;color:rgba(13,27,62,.75);text-decoration:none;font-size:.855rem;transition:background .15s,color .15s;white-space:nowrap}
+  .nav-dropdown a:hover{background:rgba(0,212,232,.1);color:var(--cyan)}
+  .nav-dropdown-icon{width:28px;height:28px;border-radius:6px;background:rgba(0,212,232,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .btn-primary{padding:9px 22px;border-radius:8px;border:none;background:var(--grad);color:#fff;font-size:.875rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:opacity .2s,transform .2s}
+  .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+  .container{max-width:1200px;margin:0 auto;padding:0 60px}
+  .section-tag{display:inline-block;font-size:.73rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:14px}
+  .section-tag.on-light{color:var(--blue-mid)}
+  .section-tag.on-dark{color:var(--cyan)}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
+  .section-title.dark{color:var(--dark-text)}
+  .section-sub{font-weight:300;font-size:1rem;line-height:1.75}
+  .section-sub.dark{color:var(--mid-text)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .cta-section{background:var(--light-bg);padding:110px 0;text-align:center}
+  .cta-inner{background:var(--light-card);border:1px solid var(--light-border);border-radius:28px;padding:80px 60px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(58,123,213,.08)}
+  .cta-inner::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,212,232,.08) 0%,rgba(107,79,187,.04) 50%,transparent 70%);pointer-events:none}
+  .cta-inner::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+  .cta-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;color:var(--dark-text)}
+  .cta-sub{color:var(--mid-text);font-weight:300;font-size:1rem;max-width:460px;margin:0 auto 36px;line-height:1.75}
+  .btn-cta-primary{padding:14px 32px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--grad);color:white;border:none;box-shadow:0 8px 28px rgba(0,212,232,.25);transition:all .25s}
+  .btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,232,.35)}
+  footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,.07);padding:60px;color:#fff}
+  .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+  .footer-brand p{color:rgba(255,255,255,.38);font-size:.85rem;font-weight:300;margin-top:14px;line-height:1.65;max-width:240px}
+  .footer-col h4{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:16px;text-transform:uppercase;letter-spacing:.09em}
+  .footer-col ul{list-style:none}
+  .footer-col ul li{margin-bottom:10px}
+  .footer-col ul li a{color:rgba(255,255,255,.38);text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s}
+  .footer-col ul li a:hover{color:var(--cyan)}
+  .footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.3)}
+  .page-hero{position:relative;min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 60px 100px;overflow:hidden;background:#0b1a35;color:#fff;text-align:center}
+  .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,232,.045) 1px,transparent 1px);background-size:64px 64px;animation:grid-drift 28s linear infinite;pointer-events:none;will-change:transform}
+  @keyframes grid-drift{0%{transform:translateY(0)}100%{transform:translateY(64px)}}
+  .page-hero::before{content:'';position:absolute;top:-15%;right:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,232,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .page-hero::after{content:'';position:absolute;bottom:-15%;left:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(107,79,187,.09) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .page-hero-wave{position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:2}
+  .page-hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+  .page-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;border:1px solid rgba(0,212,232,.3);background:rgba(0,212,232,.08);font-size:.78rem;color:var(--cyan);font-weight:500;margin-bottom:24px;letter-spacing:.08em;text-transform:uppercase}
+  .page-hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:20px;color:#fff}
+  .page-hero-title .grad-word{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .page-hero-sub{color:rgba(255,255,255,.65);font-size:1rem;font-weight:300;max-width:540px;margin:0 auto;line-height:1.8}
+  /* STATS BAR */
+  .stats-bar{background:var(--navy-mid);padding:48px 0;color:#fff}
+  .stats-bar-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+  .stat-item{padding:0 20px;border-right:1px solid rgba(255,255,255,.1)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:8px}
+  .stat-label{font-size:.82rem;color:rgba(255,255,255,.45);font-weight:300}
+  /* CASE STUDY CARDS */
+  .cs-section{background:var(--light-bg2);padding:110px 0;position:relative}
+  .cs-card{background:rgba(255,255,255,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.65);border-radius:24px;overflow:hidden;transition:all .3s;margin-bottom:40px}
+  .cs-card:last-child{margin-bottom:0}
+  .cs-card:hover{background:rgba(255,255,255,0.95);box-shadow:0 16px 50px rgba(58,123,213,.12);transform:translateY(-3px)}
+  .cs-card-inner{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .cs-card-content{padding:52px 48px}
+  .cs-industry-tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px;background:rgba(0,212,232,.08);color:var(--blue-mid);border:1px solid rgba(0,212,232,.2)}
+  .cs-company{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:700;color:var(--dark-text);margin-bottom:6px}
+  .cs-tagline{font-size:.88rem;color:var(--soft-text);margin-bottom:28px}
+  .cs-quote{font-size:1rem;color:var(--mid-text);line-height:1.8;font-weight:300;font-style:italic;margin-bottom:32px;padding-left:20px;border-left:3px solid var(--cyan)}
+  .cs-author{display:flex;align-items:center;gap:14px}
+  .cs-avatar{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;color:#fff;flex-shrink:0}
+  .cs-author-name{font-weight:600;font-size:.9rem;color:var(--dark-text)}
+  .cs-author-role{color:var(--soft-text);font-size:.78rem;margin-top:2px}
+  .cs-results{background:linear-gradient(135deg,rgba(0,212,232,.06) 0%,rgba(107,79,187,.04) 100%);padding:52px 48px;display:flex;flex-direction:column;justify-content:center;gap:24px;border-left:1px solid rgba(0,212,232,.12)}
+  .cs-result-label{font-size:.7rem;color:var(--soft-text);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+  .cs-result-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1}
+  .cs-result-desc{font-size:.8rem;color:var(--mid-text);margin-top:3px;font-weight:300}
+  @media(max-width:900px){
+    nav{padding:0 20px}.nav-links{display:none}.container{padding:0 20px}
+    .page-hero{padding:100px 20px 80px}
+    .stats-bar-inner{grid-template-columns:repeat(2,1fr);gap:20px}
+    .stat-item{border-right:none}
+    .cs-card-inner{grid-template-columns:1fr}
+    .cs-card-content,.cs-results{padding:32px 24px}
+    .cs-results{border-left:none;border-top:1px solid rgba(0,212,232,.12)}
+    .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
+    .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+    footer{padding:40px 20px}
+    .cta-inner{padding:50px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="klarity-logo-final.png" alt="Klarity" style="height:68px;filter:brightness(0) invert(1)" fetchpriority="high" decoding="async">
+  </a>
+  <ul class="nav-links">
+    <li>
+      <button class="nav-dropdown-toggle">Platform <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="platform.html#data-intelligence"><span class="nav-dropdown-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>Data Intelligence</a>
+        <a href="platform.html#integrations"><span class="nav-dropdown-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Integrations</a>
+        <a href="platform.html#dashboard"><span class="nav-dropdown-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span>Analytics Dashboard</a>
+      </div>
+    </li>
+    <li>
+      <button class="nav-dropdown-toggle">Solutions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="solutions.html#retail"><span class="nav-dropdown-icon">🏪</span>Retail &amp; Commerce</a>
+        <a href="solutions.html#finance"><span class="nav-dropdown-icon">🏦</span>Finance &amp; Banking</a>
+        <a href="solutions.html#realestate"><span class="nav-dropdown-icon">🏗️</span>Real Estate</a>
+        <a href="solutions.html#healthcare"><span class="nav-dropdown-icon">🏥</span>Healthcare</a>
+        <a href="solutions.html#manufacturing"><span class="nav-dropdown-icon">🏭</span>Manufacturing</a>
+        <a href="solutions.html#logistics"><span class="nav-dropdown-icon">🚚</span>Logistics &amp; Supply Chain</a>
+        <a href="solutions.html#food"><span class="nav-dropdown-icon">🍽️</span>Food &amp; Hospitality</a>
+      </div>
+    </li>
+    <li><a href="case-studies.html" style="padding:8px 14px;border-radius:6px">Case Studies</a></li>
+    <li>
+      <button class="nav-dropdown-toggle">Company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="about.html"><span class="nav-dropdown-icon">🏢</span>About Us</a>
+        <a href="index.html#contact"><span class="nav-dropdown-icon">✉️</span>Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-primary" onclick="window.location.href='index.html#contact'">Request a Demo →</button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-badge">Case Studies</div>
+    <h1 class="page-hero-title">Real results from <span class="grad-word">Saudi businesses.</span></h1>
+    <p class="page-hero-sub">See how manufacturers, operators, and enterprise teams across the Kingdom use Klarity to cut waste, prevent downtime, and make faster decisions with video intelligence.</p>
+  </div>
+  <div class="page-hero-wave">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#1a3260"/>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-bar-inner">
+      <div class="stat-item"><div class="stat-num">34%</div><div class="stat-label">Average revenue uplift year one</div></div>
+      <div class="stat-item"><div class="stat-num">6.5×</div><div class="stat-label">Faster operational decisions</div></div>
+      <div class="stat-item"><div class="stat-num">48h</div><div class="stat-label">Time to first live insight</div></div>
+      <div class="stat-item"><div class="stat-num">SR75k</div><div class="stat-label">Saved on a single prevented rework</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDIES -->
+<section class="cs-section">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:70px" class="reveal">
+      <span class="section-tag on-light">Client Stories</span>
+      <h2 class="section-title dark">Across the Kingdom's industrial sector</h2>
+      <p class="section-sub dark" style="max-width:500px;margin:0 auto">Manufacturing, heavy equipment, steel fabrication — here's how Klarity's video intelligence platform is delivering measurable results.</p>
+    </div>
+
+    <!-- AMAC -->
+    <div class="cs-card reveal">
+      <div class="cs-card-inner">
+        <div class="cs-card-content">
+          <div class="cs-industry-tag">Steel Fabrication</div>
+          <div class="cs-company">AMAC Contracting</div>
+          <div class="cs-tagline">Eastern Province — Steel Fabrication &amp; Construction</div>
+          <p class="cs-quote">"On a steel fabrication floor, downtime between jobs adds up fast. Klarity showed us exactly where our welding crews were losing time — waiting on material staging, unclear job handoffs. We tightened those gaps and got a noticeable improvement in throughput within the first month."</p>
+          <div class="cs-author">
+            <div class="cs-avatar">MA</div>
+            <div><div class="cs-author-name">Mohammed Ahmed</div><div class="cs-author-role">Production Director, AMAC Contracting</div></div>
+          </div>
+        </div>
+        <div class="cs-results">
+          <div>
+            <div class="cs-result-label">Challenge</div>
+            <div style="font-size:.9rem;color:var(--mid-text);font-weight:300;line-height:1.65">Welding crews losing productivity to untracked idle time between jobs — material staging delays and unclear handoffs were invisible to management until Klarity surfaced them.</div>
+          </div>
+          <div>
+            <div class="cs-result-label">Result — Throughput improvement</div>
+            <div class="cs-result-val">↑ 18%</div>
+            <div class="cs-result-desc">Within 30 days of deployment</div>
+          </div>
+          <div>
+            <div class="cs-result-label">Result — Idle time reduction</div>
+            <div class="cs-result-val">−31%</div>
+            <div class="cs-result-desc">Across all welding bays</div>
+          </div>
+          <div>
+            <div class="cs-result-label">How Klarity helped</div>
+            <div style="font-size:.82rem;color:var(--mid-text);font-weight:300;line-height:1.6">Camera feeds analysed crew movement patterns and flagged recurring idle zones. Klarity generated a daily report identifying the top 3 handoff bottlenecks by shift, enabling the production team to re-sequence material flow without any changes to equipment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODERN CRANES -->
+    <div class="cs-card reveal" style="transition-delay:.1s">
+      <div class="cs-card-inner">
+        <div class="cs-card-content">
+          <div class="cs-industry-tag">Crane Manufacturing</div>
+          <div class="cs-company">Modern Cranes</div>
+          <div class="cs-tagline">Eastern Province — Industrial Crane Manufacturing</div>
+          <p class="cs-quote">"Crane assembly has strict sequencing — one step out of order and you're looking at costly rework. Klarity monitors our bays and flags when a stage is skipped or a restricted zone is entered. It caught an assembly error early that would have cost us SR 75,000 to redo. That alone justified the investment."</p>
+          <div class="cs-author">
+            <div class="cs-avatar">SQ</div>
+            <div><div class="cs-author-name">Shahd Al-Qahtani</div><div class="cs-author-role">Plant Manager, Modern Cranes</div></div>
+          </div>
+        </div>
+        <div class="cs-results">
+          <div>
+            <div class="cs-result-label">Challenge</div>
+            <div style="font-size:.9rem;color:var(--mid-text);font-weight:300;line-height:1.65">Crane assembly requires strict step sequencing. Errors weren't caught until late in the process — sometimes after critical components were already fitted — resulting in costly and time-consuming rework.</div>
+          </div>
+          <div>
+            <div class="cs-result-label">Single incident prevented</div>
+            <div class="cs-result-val">SR 75,000</div>
+            <div class="cs-result-desc">Rework cost avoided in month two</div>
+          </div>
+          <div>
+            <div class="cs-result-label">Assembly errors caught early</div>
+            <div class="cs-result-val">100%</div>
+            <div class="cs-result-desc">Zero late-stage assembly errors since deployment</div>
+          </div>
+          <div>
+            <div class="cs-result-label">How Klarity helped</div>
+            <div style="font-size:.82rem;color:var(--mid-text);font-weight:300;line-height:1.6">Klarity monitors each assembly bay in real time and tracks step completion against the assembly sequence. When a stage is skipped or a technician enters a zone before the prerequisite step is confirmed, the system alerts the floor supervisor immediately — before any permanent work is done.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EQUIPIT -->
+    <div class="cs-card reveal" style="transition-delay:.2s">
+      <div class="cs-card-inner">
+        <div class="cs-card-content">
+          <div class="cs-industry-tag">Equipment Rental</div>
+          <div class="cs-company">Equipit</div>
+          <div class="cs-tagline">Eastern Province — Heavy Equipment Rental (Earthmoving)</div>
+          <p class="cs-quote">"We run a large yard with excavators, dozers, and loaders moving in and out daily. Knowing which units are ready, which need service, and where everything is sitting used to require someone physically walking the yard. Klarity reads that from the cameras automatically — it has saved us hours every single day."</p>
+          <div class="cs-author">
+            <div class="cs-avatar">MJ</div>
+            <div><div class="cs-author-name">Munib ibn Jamil</div><div class="cs-author-role">Head of Operations, Equipit</div></div>
+          </div>
+        </div>
+        <div class="cs-results">
+          <div>
+            <div class="cs-result-label">Challenge</div>
+            <div style="font-size:.9rem;color:var(--mid-text);font-weight:300;line-height:1.65">A yard of 80+ heavy machines with no automated tracking. Staff spent 2–3 hours daily physically walking the yard to determine asset status — time that could not scale as the fleet grew.</div>
+          </div>
+          <div>
+            <div class="cs-result-label">Daily time saved (operations)</div>
+            <div class="cs-result-val">2.5 hrs</div>
+            <div class="cs-result-desc">Per day across the yard team</div>
+          </div>
+          <div>
+            <div class="cs-result-label">Asset utilisation improvement</div>
+            <div class="cs-result-val">↑ 22%</div>
+            <div class="cs-result-desc">Fewer units sitting idle undetected</div>
+          </div>
+          <div>
+            <div class="cs-result-label">How Klarity helped</div>
+            <div style="font-size:.82rem;color:var(--mid-text);font-weight:300;line-height:1.6">Klarity's cameras identify each machine by type and registration, track movement in and out of the yard, and automatically update asset status — available, deployed, or requiring service. The operations team now checks a dashboard instead of walking the yard, and service alerts are generated automatically when machines return from the field.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/></svg></div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">Want results like these?</h2>
+      <p class="cta-sub">Book a 30-minute demo and we'll show you what Klarity would surface for your specific operations — using your own data.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <button class="btn-cta-primary" onclick="window.location.href='index.html#contact'">Request a Demo →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div><img src="klarity-logo-final.png" alt="Klarity" style="height:40px;filter:brightness(0) invert(1)" loading="lazy" decoding="async"></div>
+      <p>Data Streams, Clear Impact. Empowering Saudi Arabia's digital future with intelligent data infrastructure.</p>
+    </div>
+    <div class="footer-col"><h4>Product</h4><ul><li><a href="platform.html">Features</a></li><li><a href="platform.html#integrations">Integrations</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Blog</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="index.html#contact">Help Center</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 klaritysa.com — All rights reserved</span><span>Made with clarity 🇸🇦</span></div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)} });
+  }, {threshold:0.1});
+  reveals.forEach(r => observer.observe(r));
+  const nav = document.getElementById('main-nav');
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY < 60) { nav.style.background='transparent';nav.style.backdropFilter='none';nav.style.webkitBackdropFilter='none';nav.style.borderBottom='none';nav.style.boxShadow='none'; }
+        else { nav.style.background='rgba(10,22,55,0.55)';nav.style.backdropFilter='blur(18px)';nav.style.webkitBackdropFilter='blur(18px)';nav.style.borderBottom='1px solid rgba(255,255,255,0.08)';nav.style.boxShadow='0 4px 24px rgba(0,0,0,0.15)'; }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, {passive:true});
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', e => { e.stopPropagation(); const li=btn.closest('li'); const isOpen=li.classList.contains('open'); document.querySelectorAll('.nav-links > li').forEach(l=>l.classList.remove('open')); if(!isOpen)li.classList.add('open'); });
+  });
+  document.addEventListener('click', () => { document.querySelectorAll('.nav-links > li').forEach(l=>l.classList.remove('open')); });
+</script>
+</body>
+</html>

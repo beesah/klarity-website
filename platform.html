@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Platform — Klarity</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap"></noscript>
+<style>
+  :root{--cyan:#00D4E8;--teal:#00B4C8;--blue-mid:#3A7BD5;--purple:#6B4FBB;--navy:#0D1B3E;--navy-mid:#1a3260;--navy-card:#1e3a72;--light-bg:#F4F7FF;--light-bg2:#D8E2F5;--light-card:#FFFFFF;--light-border:#E2E8F5;--dark-text:#0D1B3E;--mid-text:#4A5A7A;--soft-text:#7A8AAA;--grad:linear-gradient(135deg,var(--cyan) 0%,var(--blue-mid) 50%,var(--purple) 100%);--grad-text:linear-gradient(90deg,var(--cyan) 0%,var(--blue-mid) 55%,var(--purple) 100%);--grad-text-dark:linear-gradient(90deg,#0096A8 0%,var(--blue-mid) 55%,var(--purple) 100%)}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;background:var(--light-bg)}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:72px;background:transparent;border-bottom:none;box-shadow:none;transition:all .3s}
+  .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+  .nav-links>li{position:relative}
+  .nav-links>li>a,.nav-dropdown-toggle{color:rgba(255,255,255,.96);text-decoration:none;font-size:.95rem;font-weight:500;transition:color .2s;letter-spacing:.02em;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:5px;padding:8px 14px;border-radius:6px;font-family:'DM Sans',sans-serif}
+  .nav-links>li>a:hover,.nav-dropdown-toggle:hover{color:var(--cyan);background:rgba(0,212,232,.06)}
+  .nav-dropdown-toggle svg{width:12px;height:12px;transition:transform .2s;opacity:.6}
+  .nav-links>li.open>.nav-dropdown-toggle svg{transform:rotate(180deg)}
+  .nav-dropdown{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%) translateY(-6px);min-width:220px;background:rgba(255,255,255,0.98);backdrop-filter:blur(24px);border:1px solid rgba(26,50,96,.1);border-radius:12px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.12);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s}
+  .nav-links>li.open .nav-dropdown{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .nav-dropdown a{display:flex;align-items:center;gap:10px;padding:9px 14px;border-radius:8px;color:rgba(13,27,62,.75);text-decoration:none;font-size:.855rem;transition:background .15s,color .15s;white-space:nowrap}
+  .nav-dropdown a:hover{background:rgba(0,212,232,.1);color:var(--cyan)}
+  .nav-dropdown-icon{width:28px;height:28px;border-radius:6px;background:rgba(0,212,232,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.85rem}
+  .nav-cta{display:flex;gap:12px;align-items:center}
+  .btn-primary{padding:9px 22px;border-radius:8px;border:none;background:var(--grad);color:#fff;font-size:.875rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:opacity .2s,transform .2s}
+  .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
+  .container{max-width:1200px;margin:0 auto;padding:0 60px}
+  .section-tag{display:inline-block;font-size:.73rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;margin-bottom:14px}
+  .section-tag.on-dark{color:var(--cyan)}
+  .section-tag.on-light{color:var(--blue-mid)}
+  .section-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
+  .section-title.dark{color:var(--dark-text)}
+  .section-title.light{color:#fff}
+  .section-sub{font-weight:300;font-size:1rem;line-height:1.75}
+  .section-sub.dark{color:var(--mid-text)}
+  .section-sub.light{color:rgba(255,255,255,.65)}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.visible{opacity:1;transform:none}
+  .di-card{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.65);border-radius:14px;padding:22px 20px;transition:all .3s;margin-bottom:14px}
+  .di-card:last-child{margin-bottom:0}
+  .di-card:hover,.di-card:active{background:rgba(255,255,255,0.95);border-color:rgba(0,212,232,.35);box-shadow:0 8px 28px rgba(0,212,232,.12)}
+  .di-card-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(0,212,232,.12),rgba(107,79,187,.08));border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .di-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:600;color:var(--dark-text);margin-bottom:6px}
+  .di-card-desc{font-size:.855rem;color:var(--mid-text);line-height:1.65;margin:0}
+  .step-card{background:rgba(255,255,255,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.65);border-radius:20px;padding:40px 32px;transition:all .3s;position:relative;overflow:hidden}
+  .step-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .3s}
+  .step-card:hover,.step-card:active{background:rgba(255,255,255,0.95);box-shadow:0 12px 40px rgba(58,123,213,.12);transform:translateY(-4px)}
+  .step-card:hover::before,.step-card:active::before{opacity:1}
+  .step-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,rgba(0,212,232,.1) 0%,rgba(107,79,187,.08) 100%);border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .step-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--dark-text);margin-bottom:10px}
+  .step-desc{color:var(--mid-text);font-size:.9rem;line-height:1.7;font-weight:300}
+  .dashboard-mock{background:var(--navy-card);border:1px solid rgba(0,212,232,.14);border-radius:20px;overflow:hidden;box-shadow:0 30px 70px rgba(13,27,62,.18)}
+  .mock-bar{background:rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.07);padding:14px 20px;display:flex;align-items:center;gap:8px}
+  .mock-dot{width:10px;height:10px;border-radius:50%}
+  .mock-body{padding:24px}
+  .mock-metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
+  .mock-metric{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:16px}
+  .mm-label{font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:4px;letter-spacing:.05em}
+  .mm-val{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .mm-change{font-size:.68rem;color:#00e096;margin-top:3px}
+  .mock-chart{background:rgba(255,255,255,.03);border-radius:12px;padding:16px;height:120px;display:flex;align-items:flex-end;gap:6px;overflow:hidden}
+  .chart-bar{flex:1;border-radius:4px 4px 0 0;background:var(--grad);opacity:.65;min-height:8px;transition:opacity .2s}
+  .chart-bar:hover{opacity:1}
+  .cta-section{background:var(--light-bg);padding:110px 0;text-align:center}
+  .cta-inner{background:var(--light-card);border:1px solid var(--light-border);border-radius:28px;padding:80px 60px;position:relative;overflow:hidden;box-shadow:0 20px 60px rgba(58,123,213,.08)}
+  .cta-inner::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:500px;height:300px;background:radial-gradient(ellipse,rgba(0,212,232,.08) 0%,rgba(107,79,187,.04) 50%,transparent 70%);pointer-events:none}
+  .cta-inner::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+  .cta-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:20px;color:var(--dark-text)}
+  .cta-sub{color:var(--mid-text);font-weight:300;font-size:1rem;max-width:460px;margin:0 auto 36px;line-height:1.75}
+  .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .btn-cta-primary{padding:14px 32px;border-radius:10px;font-size:.95rem;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;background:var(--grad);color:white;border:none;box-shadow:0 8px 28px rgba(0,212,232,.25);transition:all .25s}
+  .btn-cta-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,212,232,.35)}
+  footer{background:var(--navy-mid);border-top:1px solid rgba(255,255,255,.07);padding:60px;color:#fff}
+  .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+  .footer-brand p{color:rgba(255,255,255,.38);font-size:.85rem;font-weight:300;margin-top:14px;line-height:1.65;max-width:240px}
+  .footer-col h4{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:rgba(255,255,255,.7);margin-bottom:16px;text-transform:uppercase;letter-spacing:.09em}
+  .footer-col ul{list-style:none}
+  .footer-col ul li{margin-bottom:10px}
+  .footer-col ul li a{color:rgba(255,255,255,.38);text-decoration:none;font-size:.85rem;font-weight:300;transition:color .2s}
+  .footer-col ul li a:hover{color:var(--cyan)}
+  .footer-bottom{max-width:1200px;margin:40px auto 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:rgba(255,255,255,.3)}
+  .page-hero{position:relative;min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 60px 100px;overflow:hidden;background:#0b1a35;color:#fff;text-align:center}
+  .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,232,.045) 1px,transparent 1px);background-size:64px 64px;animation:grid-drift 28s linear infinite;pointer-events:none;will-change:transform}
+  @keyframes grid-drift{0%{transform:translateY(0)}100%{transform:translateY(64px)}}
+  .page-hero::before{content:'';position:absolute;top:-15%;right:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,232,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .page-hero::after{content:'';position:absolute;bottom:-15%;left:-8%;width:500px;height:500px;background:radial-gradient(circle,rgba(107,79,187,.09) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .page-hero-wave{position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:2}
+  .page-hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+  .page-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;border:1px solid rgba(0,212,232,.3);background:rgba(0,212,232,.08);font-size:.78rem;color:var(--cyan);font-weight:500;margin-bottom:24px;letter-spacing:.08em;text-transform:uppercase}
+  .page-hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:20px;color:#fff}
+  .page-hero-title .grad-word{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .page-hero-sub{color:rgba(255,255,255,.65);font-size:1rem;font-weight:300;max-width:540px;margin:0 auto;line-height:1.8}
+  .int-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .int-card{background:rgba(255,255,255,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.65);border-radius:16px;padding:24px 20px;text-align:center;transition:all .3s}
+  .int-card:hover{background:rgba(255,255,255,0.95);box-shadow:0 8px 28px rgba(58,123,213,.1);transform:translateY(-3px)}
+  .int-card-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(0,212,232,.12),rgba(107,79,187,.08));border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+  .int-card-name{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;color:var(--dark-text);margin-bottom:4px}
+  .int-card-type{font-size:.75rem;color:var(--soft-text)}
+  @media(max-width:900px){
+    nav{padding:0 20px}.nav-links{display:none}.container{padding:0 20px}
+    .page-hero{padding:100px 20px 80px}
+    .int-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
+    .footer-bottom{flex-direction:column;gap:8px;text-align:center}
+    footer{padding:40px 20px}
+    .cta-inner{padding:50px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav id="main-nav">
+  <a href="index.html" class="nav-logo">
+    <img src="klarity-logo-final.png" alt="Klarity" style="height:68px;filter:brightness(0) invert(1)" fetchpriority="high" decoding="async">
+  </a>
+  <ul class="nav-links">
+    <li>
+      <button class="nav-dropdown-toggle">Platform <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="platform.html#data-intelligence"><span class="nav-dropdown-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>Data Intelligence</a>
+        <a href="platform.html#integrations"><span class="nav-dropdown-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>Integrations</a>
+        <a href="platform.html#dashboard"><span class="nav-dropdown-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg></span>Analytics Dashboard</a>
+      </div>
+    </li>
+    <li>
+      <button class="nav-dropdown-toggle">Solutions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="solutions.html#retail"><span class="nav-dropdown-icon">🏪</span>Retail &amp; Commerce</a>
+        <a href="solutions.html#finance"><span class="nav-dropdown-icon">🏦</span>Finance &amp; Banking</a>
+        <a href="solutions.html#realestate"><span class="nav-dropdown-icon">🏗️</span>Real Estate</a>
+        <a href="solutions.html#healthcare"><span class="nav-dropdown-icon">🏥</span>Healthcare</a>
+        <a href="solutions.html#manufacturing"><span class="nav-dropdown-icon">🏭</span>Manufacturing</a>
+        <a href="solutions.html#logistics"><span class="nav-dropdown-icon">🚚</span>Logistics &amp; Supply Chain</a>
+        <a href="solutions.html#food"><span class="nav-dropdown-icon">🍽️</span>Food &amp; Hospitality</a>
+      </div>
+    </li>
+    <li><a href="case-studies.html" style="padding:8px 14px;border-radius:6px">Case Studies</a></li>
+    <li>
+      <button class="nav-dropdown-toggle">Company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="nav-dropdown">
+        <a href="about.html"><span class="nav-dropdown-icon">🏢</span>About Us</a>
+        <a href="index.html#contact"><span class="nav-dropdown-icon">✉️</span>Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-primary" onclick="window.location.href='index.html#contact'">Request a Demo →</button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-inner">
+    <div class="page-hero-badge">The Platform</div>
+    <h1 class="page-hero-title">Everything your data needs to <span class="grad-word">drive decisions.</span></h1>
+    <p class="page-hero-sub">From raw camera feeds and data streams to clear, actionable intelligence — Klarity processes it all in real time, so your team always knows what to do next.</p>
+  </div>
+  <div class="page-hero-wave">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- DATA INTELLIGENCE -->
+<section id="data-intelligence" style="background:var(--light-bg2);padding:110px 0;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,232,.07) 0%,transparent 65%);border-radius:50%;pointer-events:none"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start">
+      <div class="reveal">
+        <span class="section-tag on-light">Data Intelligence</span>
+        <h2 class="section-title dark">From raw data to clear decisions — in real time</h2>
+        <p class="section-sub dark">Klarity ingests every data stream your business generates — cameras, ERP, CRM, IoT sensors, POS systems — and processes them simultaneously. You stop waiting for reports and start seeing your business as it actually is, right now.</p>
+        <p class="section-sub dark" style="margin-top:16px">Our AI engine doesn't just surface numbers. It interprets patterns, flags anomalies, predicts what's about to happen, and tells your team exactly what to do — in plain Arabic or English.</p>
+        <div style="display:flex;flex-direction:column;gap:18px;margin-top:36px;padding-top:30px;border-top:1px solid var(--light-border)">
+          <div style="display:flex;align-items:center;gap:16px"><div style="font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:700;background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:65px">73%</div><div style="font-size:.875rem;color:var(--mid-text)">of business decisions are still made without reliable data</div></div>
+          <div style="display:flex;align-items:center;gap:16px"><div style="font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:700;background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:65px">6.5×</div><div style="font-size:.875rem;color:var(--mid-text)">faster decision-making for companies that adopt real-time intelligence</div></div>
+          <div style="display:flex;align-items:center;gap:16px"><div style="font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:700;background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;min-width:65px">34%</div><div style="font-size:.875rem;color:var(--mid-text)">average revenue uplift reported by Klarity clients in year one</div></div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="di-card">
+          <div class="di-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div><div class="di-card-title">Real-Time Stream Processing</div><p class="di-card-desc">Klarity processes millions of data points per second across all your sources simultaneously — cameras, sensors, transactions, and more — with sub-second latency.</p></div>
+        </div>
+        <div class="di-card">
+          <div class="di-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+          <div><div class="di-card-title">AI Insight Engine</div><p class="di-card-desc">Models trained on Saudi enterprise data detect patterns and anomalies that human analysts miss. Every alert includes a plain-language explanation and a recommended action.</p></div>
+        </div>
+        <div class="di-card">
+          <div class="di-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+          <div><div class="di-card-title">Predictive Forecasting</div><p class="di-card-desc">Klarity doesn't just tell you what happened — it tells you what's likely to happen next. Predict demand, flag equipment risk, and anticipate staffing gaps before they become problems.</p></div>
+        </div>
+        <div class="di-card">
+          <div class="di-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="di-card-title">Automated Reporting</div><p class="di-card-desc">Reports delivered to inbox, Slack, or dashboard on your schedule — summarising what changed, why it matters, and what to do. In Arabic or English.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:1">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/></svg>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background:var(--light-bg);padding:110px 0 120px;position:relative">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:70px" class="reveal">
+      <span class="section-tag on-light">How It Works</span>
+      <h2 class="section-title dark">Up and running in minutes, not months</h2>
+      <p class="section-sub dark" style="max-width:520px;margin:0 auto">No rip-and-replace. No complex migrations. Klarity connects to your existing infrastructure and starts delivering value from day one.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+      <div class="step-card reveal">
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+        <div style="font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.18;line-height:1;margin-bottom:18px;position:absolute;top:28px;right:28px">01</div>
+        <div class="step-title">Connect your sources</div>
+        <p class="step-desc">Point Klarity at your cameras, databases, APIs, or cloud platforms. We support 80+ connectors out of the box — CCTV feeds, SAP, Salesforce, AWS, Azure, Oracle, and more. Zero-code setup for most integrations.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.12s">
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+        <div style="font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.18;line-height:1;margin-bottom:18px;position:absolute;top:28px;right:28px">02</div>
+        <div class="step-title">Klarity learns your business</div>
+        <p class="step-desc">Our AI models calibrate to your operations — learning your normal patterns, seasonal rhythms, and business rules. Within 48 hours it knows what "normal" looks like for you, and starts flagging what isn't.</p>
+      </div>
+      <div class="step-card reveal" style="transition-delay:.24s">
+        <div class="step-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+        <div style="font-family:'Syne',sans-serif;font-size:3rem;font-weight:800;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;opacity:.18;line-height:1;margin-bottom:18px;position:absolute;top:28px;right:28px">03</div>
+        <div class="step-title">Act on live intelligence</div>
+        <p class="step-desc">Alerts, reports, and dashboard insights land in the hands of the right people — automatically. Managers see what matters for their area. Executives see the full picture. Everyone acts faster.</p>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard" style="background:var(--light-bg2);padding:110px 0;position:relative">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center">
+      <div class="reveal">
+        <span class="section-tag on-light">Analytics Dashboard</span>
+        <h2 class="section-title dark">One dashboard. Every signal that matters.</h2>
+        <p class="section-sub dark">The Klarity dashboard is designed to be understood in seconds — not after 20 minutes of clicking through menus. Every number is contextualised, every alert is explained, and every view is customisable to your role.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:32px">
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex-shrink:0"></div><span style="font-size:.9rem;color:var(--mid-text)">Role-based views — operators, managers, and executives each see what's relevant to them</span></div>
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex-shrink:0"></div><span style="font-size:.9rem;color:var(--mid-text)">Arabic and English language support throughout</span></div>
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex-shrink:0"></div><span style="font-size:.9rem;color:var(--mid-text)">Mobile-ready — full access from any device</span></div>
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex-shrink:0"></div><span style="font-size:.9rem;color:var(--mid-text)">Customisable alerts — set thresholds and notification channels per metric</span></div>
+          <div style="display:flex;align-items:center;gap:12px"><div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);flex-shrink:0"></div><span style="font-size:.9rem;color:var(--mid-text)">Export to PDF, Excel, or push directly to your ERP</span></div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s">
+        <div class="dashboard-mock">
+          <div class="mock-bar">
+            <div class="mock-dot" style="background:#ff5f57"></div><div class="mock-dot" style="background:#febc2e"></div><div class="mock-dot" style="background:#28c840"></div>
+            <span style="margin-left:12px;font-size:.75rem;color:rgba(255,255,255,.3)">klarity.sa — Live Dashboard</span>
+          </div>
+          <div class="mock-body">
+            <div class="mock-metric-row">
+              <div class="mock-metric"><div class="mm-label">EVENTS TODAY</div><div class="mm-val">4.2M</div><div class="mm-change">↑ 18% vs yesterday</div></div>
+              <div class="mock-metric"><div class="mm-label">AVG LATENCY</div><div class="mm-val">3.8ms</div><div class="mm-change">↓ 0.4ms improvement</div></div>
+              <div class="mock-metric"><div class="mm-label">ANOMALIES</div><div class="mm-val">2</div><div class="mm-change" style="color:#ff6b6b">⚠ Needs review</div></div>
+            </div>
+            <div class="mock-chart">
+              <div class="chart-bar" style="height:40%"></div><div class="chart-bar" style="height:65%"></div><div class="chart-bar" style="height:50%"></div><div class="chart-bar" style="height:80%"></div><div class="chart-bar" style="height:60%"></div><div class="chart-bar" style="height:90%"></div><div class="chart-bar" style="height:70%"></div><div class="chart-bar" style="height:85%"></div><div class="chart-bar" style="height:95%"></div><div class="chart-bar" style="height:75%"></div><div class="chart-bar" style="height:100%"></div><div class="chart-bar" style="height:88%"></div>
+            </div>
+            <div style="margin-top:14px;display:flex;gap:10px">
+              <div style="flex:1;background:rgba(255,255,255,.04);border-radius:8px;padding:12px;border:1px solid rgba(255,255,255,.07)">
+                <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:6px">TOP DATA SOURCES</div>
+                <div style="font-size:.8rem;color:rgba(255,255,255,.7);display:flex;flex-direction:column;gap:5px">
+                  <span>● CRM Pipeline <span style="color:#00D4E8;float:right">38%</span></span>
+                  <span>● IoT Sensors <span style="color:#3A7BD5;float:right">27%</span></span>
+                  <span>● ERP Events <span style="color:#6B4FBB;float:right">19%</span></span>
+                </div>
+              </div>
+              <div style="flex:1;background:rgba(0,212,232,.06);border-radius:8px;padding:12px;border:1px solid rgba(0,212,232,.14)">
+                <div style="font-size:.68rem;color:rgba(255,255,255,.35);margin-bottom:6px">AI INSIGHT</div>
+                <div style="font-size:.78rem;color:rgba(255,255,255,.72);line-height:1.5">Revenue anomaly detected in Eastern Province — up 34% above model forecast.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:1">
+    <svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/></svg>
+  </div>
+</section>
+
+<!-- INTEGRATIONS -->
+<section id="integrations" style="background:var(--light-bg);padding:110px 0 120px;position:relative">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:60px" class="reveal">
+      <span class="section-tag on-light">Integrations</span>
+      <h2 class="section-title dark">Connects to everything you already use</h2>
+      <p class="section-sub dark" style="max-width:500px;margin:0 auto">80+ pre-built connectors. If we don't have one, our API makes it easy to build your own in hours.</p>
+    </div>
+    <div class="int-grid">
+      <div class="int-card reveal"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="int-card-name">SAP ERP</div><div class="int-card-type">Enterprise Resource Planning</div></div>
+      <div class="int-card reveal" style="transition-delay:.06s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="int-card-name">Salesforce</div><div class="int-card-type">CRM</div></div>
+      <div class="int-card reveal" style="transition-delay:.12s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="int-card-name">IoT Sensors</div><div class="int-card-type">Operational Data</div></div>
+      <div class="int-card reveal" style="transition-delay:.18s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div><div class="int-card-name">CCTV / IP Cameras</div><div class="int-card-type">Video Intelligence</div></div>
+      <div class="int-card reveal" style="transition-delay:.24s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div class="int-card-name">AWS / Azure</div><div class="int-card-type">Cloud Infrastructure</div></div>
+      <div class="int-card reveal" style="transition-delay:.30s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="int-card-name">Oracle / Microsoft</div><div class="int-card-type">Database & ERP</div></div>
+      <div class="int-card reveal" style="transition-delay:.36s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="int-card-name">POS Systems</div><div class="int-card-type">Retail & Hospitality</div></div>
+      <div class="int-card reveal" style="transition-delay:.42s"><div class="int-card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg></div><div class="int-card-name">REST API</div><div class="int-card-type">Custom Integration</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <h2 class="cta-title">See the platform in 30 minutes</h2>
+      <p class="cta-sub">We'll connect to a sample of your data and show you what Klarity would surface — live, in your industry.</p>
+      <div class="cta-actions">
+        <button class="btn-cta-primary" onclick="window.location.href='index.html#contact'">Request a Demo →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div><img src="klarity-logo-final.png" alt="Klarity" style="height:40px;filter:brightness(0) invert(1)" loading="lazy" decoding="async"></div>
+      <p>Data Streams, Clear Impact. Empowering Saudi Arabia's digital future with intelligent data infrastructure.</p>
+    </div>
+    <div class="footer-col"><h4>Product</h4><ul><li><a href="platform.html">Features</a></li><li><a href="platform.html#integrations">Integrations</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Blog</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="index.html#contact">Help Center</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 klaritysa.com — All rights reserved</span><span>Made with clarity 🇸🇦</span></div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)} });
+  }, {threshold:0.1});
+  reveals.forEach(r => observer.observe(r));
+  const nav = document.getElementById('main-nav');
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY < 60) { nav.style.background='transparent';nav.style.backdropFilter='none';nav.style.webkitBackdropFilter='none';nav.style.borderBottom='none';nav.style.boxShadow='none'; }
+        else { nav.style.background='rgba(10,22,55,0.55)';nav.style.backdropFilter='blur(18px)';nav.style.webkitBackdropFilter='blur(18px)';nav.style.borderBottom='1px solid rgba(255,255,255,0.08)';nav.style.boxShadow='0 4px 24px rgba(0,0,0,0.15)'; }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, {passive:true});
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(btn => {
+    btn.addEventListener('click', e => { e.stopPropagation(); const li=btn.closest('li'); const isOpen=li.classList.contains('open'); document.querySelectorAll('.nav-links > li').forEach(l=>l.classList.remove('open')); if(!isOpen)li.classList.add('open'); });
+  });
+  document.addEventListener('click', () => { document.querySelectorAll('.nav-links > li').forEach(l=>l.classList.remove('open')); });
+  if(window.location.hash){const el=document.querySelector(window.location.hash);if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),100);}
+</script>
+</body>
+</html>
