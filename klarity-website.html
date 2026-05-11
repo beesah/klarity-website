@@ -6,7 +6,10 @@
 <title>Klarity</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Plus+Jakarta+Sans:wght@700;800&display=swap"></noscript>
 <style>
   :root {
     --cyan: #00D4E8;
@@ -72,10 +75,10 @@
 
   /* HERO — FULL SCREEN */
   .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 60px 130px;overflow:hidden;background:#0b1a35;color:#fff;text-align:center}
-  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,232,.045) 1px,transparent 1px);background-size:64px 64px;animation:grid-drift 28s linear infinite;pointer-events:none}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,212,232,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,232,.045) 1px,transparent 1px);background-size:64px 64px;animation:grid-drift 28s linear infinite;pointer-events:none;will-change:transform}
   @keyframes grid-drift{0%{transform:translateY(0)}100%{transform:translateY(64px)}}
-  .hero-scan{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,212,232,.0) 15%,rgba(0,212,232,.55) 50%,rgba(0,212,232,.0) 85%,transparent 100%);box-shadow:0 0 22px 6px rgba(0,212,232,.15);animation:scan-line 7s linear infinite;pointer-events:none;z-index:0}
-  @keyframes scan-line{0%{top:-4%}100%{top:104%}}
+  .hero-scan{position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,212,232,.0) 15%,rgba(0,212,232,.55) 50%,rgba(0,212,232,.0) 85%,transparent 100%);box-shadow:0 0 22px 6px rgba(0,212,232,.15);animation:scan-line 7s linear infinite;pointer-events:none;z-index:0;will-change:transform}
+  @keyframes scan-line{0%{transform:translateY(-10px)}100%{transform:translateY(100vh)}}
   .hero::before{content:'';position:absolute;top:-15%;right:-8%;width:700px;height:700px;background:radial-gradient(circle,rgba(0,212,232,.13) 0%,transparent 65%);border-radius:50%;pointer-events:none}
   .hero::after{content:'';position:absolute;bottom:-15%;left:-8%;width:600px;height:600px;background:radial-gradient(circle,rgba(107,79,187,.11) 0%,transparent 65%);border-radius:50%;pointer-events:none}
   .hero-wave{position:absolute;bottom:-2px;left:0;right:0;line-height:0;z-index:2}
@@ -103,7 +106,7 @@
   /* LOGOS — LIGHT */
   .logos-strip{background:var(--light-bg);padding:44px 0 72px;position:relative}
   .logos-label{text-align:center;font-size:.78rem;color:var(--soft-text);letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px}
-  .logos-track{display:flex;gap:64px;align-items:center;animation:scroll-left 22s linear infinite;width:max-content}
+  .logos-track{display:flex;gap:64px;align-items:center;animation:scroll-left 22s linear infinite;width:max-content;will-change:transform}
   .logo-item{display:flex;align-items:center;white-space:nowrap;color:var(--mid-text);font-size:.82rem;font-weight:600;letter-spacing:.03em;opacity:0.8}
   @keyframes scroll-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   .logo-item{font-family:'Syne',sans-serif;font-weight:600;font-size:1rem;color:#b0bcd6;white-space:nowrap;letter-spacing:.04em}
@@ -256,7 +259,7 @@
 <!-- NAV -->
 <nav id="main-nav">
   <a href="#" class="nav-logo">
-    <img src="klarity-logo-final.png" alt="Klarity" style="height:68px;filter:brightness(0) invert(1)">
+    <img src="klarity-logo-final.png" alt="Klarity" style="height:68px;filter:brightness(0) invert(1)" fetchpriority="high" decoding="async">
   </a>
   <ul class="nav-links">
     <li>
@@ -678,7 +681,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <div style="display:flex;align-items:center;">
-        <img src="klarity-logo-final.png" alt="Klarity" style="height:40px;filter:brightness(0) invert(1)">
+        <img src="klarity-logo-final.png" alt="Klarity" style="height:40px;filter:brightness(0) invert(1)" loading="lazy" decoding="async">
       </div>
       <p>Data Streams, Clear Impact. Empowering Saudi Arabia's digital future with intelligent data infrastructure.</p>
     </div>
@@ -706,23 +709,29 @@
     });
   });
 
+  const nav = document.getElementById('main-nav');
+  let scrollTicking = false;
   window.addEventListener('scroll', () => {
-    const nav = document.getElementById('main-nav');
-    const heroHeight = document.querySelector('.hero').offsetHeight;
-    if (window.scrollY < 60) {
-      nav.style.background = 'transparent';
-      nav.style.backdropFilter = 'none';
-      nav.style.webkitBackdropFilter = 'none';
-      nav.style.borderBottom = 'none';
-      nav.style.boxShadow = 'none';
-    } else {
-      nav.style.background = 'rgba(10,22,55,0.55)';
-      nav.style.backdropFilter = 'blur(18px)';
-      nav.style.webkitBackdropFilter = 'blur(18px)';
-      nav.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
-      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.15)';
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        if (window.scrollY < 60) {
+          nav.style.background = 'transparent';
+          nav.style.backdropFilter = 'none';
+          nav.style.webkitBackdropFilter = 'none';
+          nav.style.borderBottom = 'none';
+          nav.style.boxShadow = 'none';
+        } else {
+          nav.style.background = 'rgba(10,22,55,0.55)';
+          nav.style.backdropFilter = 'blur(18px)';
+          nav.style.webkitBackdropFilter = 'blur(18px)';
+          nav.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+          nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.15)';
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
     }
-  });
+  }, {passive: true});
 
   function highlightIndustryCard(card) {
     card.classList.add('visible');
