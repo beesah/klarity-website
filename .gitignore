@@ -1,2 +1,2 @@
-.vercel
-.gstack/
+node_modules/
+bun.lock
