@@ -68,21 +68,21 @@
   .page-hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:20px;color:#fff}
   .page-hero-title .grad-word{background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   .page-hero-sub{color:rgba(255,255,255,.65);font-size:1rem;font-weight:300;max-width:540px;margin:0 auto;line-height:1.8}
-  /* INDUSTRY SECTIONS */
-  .industry-section{padding:100px 0;position:relative}
-  .industry-section:nth-child(even){background:var(--light-bg2)}
-  .industry-section:nth-child(odd){background:var(--light-bg)}
-  .industry-inner{max-width:760px}
-  .industry-icon-wrap{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,rgba(0,212,232,.12),rgba(107,79,187,.08));border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
-  .industry-use-cases{display:flex;flex-direction:column;gap:12px;margin-top:28px}
-  .use-case{display:flex;gap:12px;align-items:flex-start}
-  .use-case-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex-shrink:0;margin-top:7px}
-  .use-case-text{font-size:.9rem;color:var(--mid-text);line-height:1.65;font-weight:300}
+  /* INDUSTRY GRID */
+  .solutions-grid-section{background:var(--light-bg);padding:80px 0 100px}
+  .solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .sol-card{background:rgba(255,255,255,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.75);border-radius:22px;padding:36px 30px;transition:all .3s;display:flex;flex-direction:column;height:100%}
+  .sol-card:hover{background:#fff;box-shadow:0 16px 50px rgba(58,123,213,.11);transform:translateY(-3px)}
+  .industry-icon-wrap{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(0,212,232,.12),rgba(107,79,187,.08));border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;margin-bottom:18px;flex-shrink:0}
+  .industry-use-cases{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+  .use-case{display:flex;gap:10px;align-items:flex-start}
+  .use-case-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);flex-shrink:0;margin-top:8px}
+  .use-case-text{font-size:.85rem;color:var(--mid-text);line-height:1.6;font-weight:300}
+  @media(max-width:1024px){.solutions-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:900px){
     nav{padding:0 20px}.nav-links{display:none}.container{padding:0 20px}
     .page-hero{padding:100px 20px 80px}
-    .industry-inner{grid-template-columns:1fr;gap:36px}
-    .industry-inner.reverse{direction:ltr}
+    .solutions-grid{grid-template-columns:1fr}
     .footer-inner{grid-template-columns:1fr 1fr;gap:30px}
     .footer-bottom{flex-direction:column;gap:8px;text-align:center}
     footer{padding:40px 20px}
@@ -145,143 +145,117 @@
   </div>
 </section>
 
-<!-- RETAIL -->
-<section id="retail" class="industry-section">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
-      <span class="section-tag on-light">Retail &amp; Commerce</span>
-      <h2 class="section-title dark">Know what's happening in every store, right now</h2>
-      <p class="section-sub dark">Klarity analyses your store camera feeds in real time — counting foot traffic, monitoring staff presence, detecting queue build-ups, and flagging security events before they escalate.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Footfall counting — track how many customers enter each zone per hour and adjust staffing in real time</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Queue count detection — alert staff when checkout lines exceed a set threshold for more than X seconds</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Unattended customer detection — flag when a customer has been waiting without staff attention for too long</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — identify unauthorised persons in stockrooms or restricted areas after hours</div></div>
-      </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for retail — speak to us to see the full list.</p>
-    </div>
-  </div></div>
-  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg></div>
-</section>
+<section class="solutions-grid-section">
+  <div class="container">
+    <div class="solutions-grid">
 
-<!-- FINANCE -->
-<section id="finance" class="industry-section">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-      <span class="section-tag on-light">Finance &amp; Banking</span>
-      <h2 class="section-title dark">Detect risk before it becomes damage</h2>
-      <p class="section-sub dark">Klarity turns your existing camera network into an active security layer — detecting unauthorised access, camera tampering, and physical compliance breaches across every branch and facility.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — alert security when unauthorised persons enter vaults, teller areas, or server rooms</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Camera tampering detection — instantly flag if any surveillance camera is covered or repositioned</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in restricted zones — monitor high-security areas and generate alerts on any breach</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Slip and fall detection — detect incidents in banking halls and notify staff for immediate response</div></div>
+      <!-- RETAIL -->
+      <div id="retail" class="sol-card reveal">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <span class="section-tag on-light">Retail &amp; Commerce</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">Know what's happening in every store, right now</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity analyses your store camera feeds in real time — counting foot traffic, monitoring staff presence, detecting queue build-ups, and flagging security events before they escalate.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Footfall counting — track how many customers enter each zone per hour and adjust staffing in real time</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Queue count detection — alert staff when checkout lines exceed a set threshold for more than X seconds</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Unattended customer detection — flag when a customer has been waiting without staff attention for too long</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — identify unauthorised persons in stockrooms or restricted areas after hours</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for retail — speak to us to see the full list.</p>
       </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for finance &amp; banking — speak to us to see the full list.</p>
-    </div>
-  </div></div>
-  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/></svg></div>
-</section>
 
-<!-- REAL ESTATE -->
-<section id="realestate" class="industry-section">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-      <span class="section-tag on-light">Real Estate</span>
-      <h2 class="section-title dark">One live dashboard for your entire portfolio</h2>
-      <p class="section-sub dark">Klarity monitors your properties around the clock — detecting intrusions, tracking movement in common areas, and alerting you to security or safety events across your entire portfolio from one dashboard.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — monitor vacant units and restricted areas for unauthorised access after hours</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person loitering detection — flag individuals lingering in lobbies, car parks, or access-controlled zones</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Crowd detection — monitor shared space occupancy and alert when safety thresholds are exceeded</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Camera tampering detection — get notified immediately if any property camera is obscured or moved</div></div>
+      <!-- FINANCE -->
+      <div id="finance" class="sol-card reveal" style="transition-delay:.06s">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+        <span class="section-tag on-light">Finance &amp; Banking</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">Detect risk before it becomes damage</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity turns your existing camera network into an active security layer — detecting unauthorised access, camera tampering, and physical compliance breaches across every branch and facility.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — alert security when unauthorised persons enter vaults, teller areas, or server rooms</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Camera tampering detection — instantly flag if any surveillance camera is covered or repositioned</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in restricted zones — monitor high-security areas and generate alerts on any breach</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Slip and fall detection — detect incidents in banking halls and notify staff for immediate response</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for finance &amp; banking — speak to us to see the full list.</p>
       </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for real estate — speak to us to see the full list.</p>
-    </div>
-  </div></div>
-  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg></div>
-</section>
 
-<!-- HEALTHCARE -->
-<section id="healthcare" class="industry-section">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
-      <span class="section-tag on-light">Healthcare</span>
-      <h2 class="section-title dark">Operational clarity that improves patient outcomes</h2>
-      <p class="section-sub dark">Klarity monitors wards, corridors, and restricted clinical areas through existing cameras — detecting falls, flagging unauthorised access, and tracking zone occupancy so staff can focus on patient care.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Slip and fall detection — detect patient or staff falls in corridors and wards and raise instant alerts</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in restricted zones — alert when unauthorised individuals enter ICUs or medication stores</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Crowd detection — monitor waiting area occupancy and flag when emergency departments hit capacity</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Occupancy heatmaps — visualise patient and staff movement to optimise ward layouts and shift planning</div></div>
+      <!-- REAL ESTATE -->
+      <div id="realestate" class="sol-card reveal" style="transition-delay:.12s">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <span class="section-tag on-light">Real Estate</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">One live dashboard for your entire portfolio</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity monitors your properties around the clock — detecting intrusions, tracking movement in common areas, and alerting you to security or safety events across your entire portfolio from one dashboard.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — monitor vacant units and restricted areas for unauthorised access after hours</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person loitering detection — flag individuals lingering in lobbies, car parks, or access-controlled zones</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Crowd detection — monitor shared space occupancy and alert when safety thresholds are exceeded</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Camera tampering detection — get notified immediately if any property camera is obscured or moved</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for real estate — speak to us to see the full list.</p>
       </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for healthcare — speak to us to see the full list.</p>
-    </div>
-  </div></div>
-  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/></svg></div>
-</section>
 
-<!-- MANUFACTURING -->
-<section id="manufacturing" class="industry-section">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
-      <span class="section-tag on-light">Manufacturing</span>
-      <h2 class="section-title dark">Every production line, every machine, live</h2>
-      <p class="section-sub dark">Klarity analyses your production floor cameras in real time — enforcing PPE compliance, detecting unsafe behaviour near machinery, and alerting supervisors to idle equipment before downtime escalates.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Hardhat, safety jacket &amp; gloves detection — automatically flag missing PPE across all production zones</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in forklift area — alert supervisors when pedestrians enter active forklift operating zones</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Critical machine station unattended — detect when a running machine is left without an operator present</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Conveyor box fall detection — flag products falling off conveyor belts for immediate production team response</div></div>
+      <!-- HEALTHCARE -->
+      <div id="healthcare" class="sol-card reveal" style="transition-delay:.18s">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+        <span class="section-tag on-light">Healthcare</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">Operational clarity that improves patient outcomes</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity monitors wards, corridors, and restricted clinical areas through existing cameras — detecting falls, flagging unauthorised access, and tracking zone occupancy so staff can focus on patient care.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Slip and fall detection — detect patient or staff falls in corridors and wards and raise instant alerts</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in restricted zones — alert when unauthorised individuals enter ICUs or medication stores</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Crowd detection — monitor waiting area occupancy and flag when emergency departments hit capacity</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Occupancy heatmaps — visualise patient and staff movement to optimise ward layouts and shift planning</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for healthcare — speak to us to see the full list.</p>
       </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for manufacturing — speak to us to see the full list.</p>
-    </div>
-  </div></div>
-  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg></div>
-</section>
 
-<!-- LOGISTICS -->
-<section id="logistics" class="industry-section">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
-      <span class="section-tag on-light">Logistics &amp; Supply Chain</span>
-      <h2 class="section-title dark">End-to-end visibility across your supply chain</h2>
-      <p class="section-sub dark">Klarity monitors your warehouses and yards through existing camera infrastructure — enforcing safety in vehicle zones, tracking throughput, and flagging restricted area breaches across every facility.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in forklift area — alert when pedestrians enter active forklift zones inside warehouses</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — monitor loading docks and restricted storage areas for unauthorised access</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Vehicle drive-in count — track trucks and vehicles entering and exiting the yard in real time</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intersection halt detection — verify forklifts and yard vehicles stop at intersections before crossing</div></div>
+      <!-- MANUFACTURING -->
+      <div id="manufacturing" class="sol-card reveal" style="transition-delay:.24s">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg></div>
+        <span class="section-tag on-light">Manufacturing</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">Every production line, every machine, live</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity analyses your production floor cameras in real time — enforcing PPE compliance, detecting unsafe behaviour near machinery, and alerting supervisors to idle equipment before downtime escalates.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Hardhat, safety jacket &amp; gloves detection — automatically flag missing PPE across all production zones</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in forklift area — alert supervisors when pedestrians enter active forklift operating zones</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Critical machine station unattended — detect when a running machine is left without an operator present</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Conveyor box fall detection — flag products falling off conveyor belts for immediate production team response</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for manufacturing — speak to us to see the full list.</p>
       </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for logistics — speak to us to see the full list.</p>
-    </div>
-  </div></div>
-  <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#F4F7FF"/></svg></div>
-</section>
 
-<!-- FOOD -->
-<section id="food" class="industry-section" style="background:var(--light-bg)!important">
-  <div class="container"><div class="industry-inner reveal">
-    <div>
-      <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <span class="section-tag on-light">Food &amp; Hospitality</span>
-      <h2 class="section-title dark">Every branch running at its best</h2>
-      <p class="section-sub dark">Klarity monitors your kitchens and dining floors through video — automatically verifying hygiene compliance, tracking service times, and alerting managers when standards slip or queues build up.</p>
-      <div class="industry-use-cases">
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Gloves &amp; hairnet compliance — detect kitchen staff missing required PPE during food preparation</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Handwash for 20 seconds — verify staff wash hands for the required duration before handling food</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Customer order time — record wait times at order counters and alert when service falls behind target</div></div>
-        <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Table occupancy alerts — detect when tables go empty and notify floor staff to turn them over faster</div></div>
+      <!-- LOGISTICS -->
+      <div id="logistics" class="sol-card reveal" style="transition-delay:.30s">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+        <span class="section-tag on-light">Logistics &amp; Supply Chain</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">End-to-end visibility across your supply chain</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity monitors your warehouses and yards through existing camera infrastructure — enforcing safety in vehicle zones, tracking throughput, and flagging restricted area breaches across every facility.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Person detection in forklift area — alert when pedestrians enter active forklift zones inside warehouses</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intrusion detection — monitor loading docks and restricted storage areas for unauthorised access</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Vehicle drive-in count — track trucks and vehicles entering and exiting the yard in real time</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Intersection halt detection — verify forklifts and yard vehicles stop at intersections before crossing</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for logistics — speak to us to see the full list.</p>
       </div>
-      <p style="font-size:.78rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for food &amp; hospitality — speak to us to see the full list.</p>
+
+      <!-- FOOD -->
+      <div id="food" class="sol-card reveal" style="transition-delay:.36s">
+        <div class="industry-icon-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <span class="section-tag on-light">Food &amp; Hospitality</span>
+        <h2 class="section-title dark" style="font-size:1.25rem;margin-bottom:10px">Every branch running at its best</h2>
+        <p class="section-sub dark" style="font-size:.875rem">Klarity monitors your kitchens and dining floors through video — automatically verifying hygiene compliance, tracking service times, and alerting managers when standards slip or queues build up.</p>
+        <div class="industry-use-cases">
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Gloves &amp; hairnet compliance — detect kitchen staff missing required PPE during food preparation</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Handwash for 20 seconds — verify staff wash hands for the required duration before handling food</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Customer order time — record wait times at order counters and alert when service falls behind target</div></div>
+          <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Table occupancy alerts — detect when tables go empty and notify floor staff to turn them over faster</div></div>
+        </div>
+        <p style="font-size:.75rem;color:var(--soft-text);margin-top:18px;font-style:italic">These are just a few of the available use cases for food &amp; hospitality — speak to us to see the full list.</p>
+      </div>
+
     </div>
-  </div></div>
+  </div>
 </section>
 
 <!-- CTA -->
@@ -304,7 +278,7 @@
       <p>Data Streams, Clear Impact. Empowering Saudi Arabia's digital future with intelligent data infrastructure.</p>
     </div>
     <div class="footer-col"><h4>Product</h4><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#how">Integrations</a></li></ul></div>
-    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="#">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="index.html#contact">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
     <div class="footer-col"><h4>Resources</h4><ul><li><a href="#">Blog</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="index.html#contact">Help Center</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li></ul></div>
   </div>
   <div class="footer-bottom"><span>© 2026 klaritysa.com — All rights reserved</span><span>Made with clarity 🇸🇦</span></div>
