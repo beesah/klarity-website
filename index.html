@@ -708,8 +708,20 @@
 
   window.addEventListener('scroll', () => {
     const nav = document.getElementById('main-nav');
-    nav.style.background = window.scrollY > 50 ? 'rgba(26,50,96,0.98)' : 'rgba(26,50,96,0.93)';
-    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 30px rgba(0,0,0,0.25)' : 'none';
+    const heroHeight = document.querySelector('.hero').offsetHeight;
+    if (window.scrollY < 60) {
+      nav.style.background = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.webkitBackdropFilter = 'none';
+      nav.style.borderBottom = 'none';
+      nav.style.boxShadow = 'none';
+    } else {
+      nav.style.background = 'rgba(10,22,55,0.55)';
+      nav.style.backdropFilter = 'blur(18px)';
+      nav.style.webkitBackdropFilter = 'blur(18px)';
+      nav.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+      nav.style.boxShadow = '0 4px 24px rgba(0,0,0,0.15)';
+    }
   });
 
   function highlightIndustryCard(card) {
