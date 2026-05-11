@@ -72,20 +72,12 @@
   .industry-section{padding:100px 0;position:relative}
   .industry-section:nth-child(even){background:var(--light-bg2)}
   .industry-section:nth-child(odd){background:var(--light-bg)}
-  .industry-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-  .industry-inner.reverse{direction:rtl}
-  .industry-inner.reverse>*{direction:ltr}
+  .industry-inner{max-width:760px}
   .industry-icon-wrap{width:64px;height:64px;border-radius:18px;background:linear-gradient(135deg,rgba(0,212,232,.12),rgba(107,79,187,.08));border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;margin-bottom:22px}
   .industry-use-cases{display:flex;flex-direction:column;gap:12px;margin-top:28px}
   .use-case{display:flex;gap:12px;align-items:flex-start}
   .use-case-dot{width:7px;height:7px;border-radius:50%;background:var(--cyan);flex-shrink:0;margin-top:7px}
   .use-case-text{font-size:.9rem;color:var(--mid-text);line-height:1.65;font-weight:300}
-  .industry-visual{background:rgba(255,255,255,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.65);border-radius:20px;padding:36px;transition:all .3s}
-  .industry-visual:hover{background:rgba(255,255,255,0.95);box-shadow:0 12px 40px rgba(58,123,213,.1)}
-  .iv-metric{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--light-border)}
-  .iv-metric:last-child{border-bottom:none}
-  .iv-label{font-size:.82rem;color:var(--mid-text);font-weight:300}
-  .iv-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
   @media(max-width:900px){
     nav{padding:0 20px}.nav-links{display:none}.container{padding:0 20px}
     .page-hero{padding:100px 20px 80px}
@@ -168,14 +160,6 @@
         <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Identify top-performing products and flag slow movers before they tie up capital</div></div>
       </div>
     </div>
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Live Retail Metrics</div>
-      <div class="iv-metric"><span class="iv-label">Today's revenue (all branches)</span><span class="iv-val">SAR 284,000</span></div>
-      <div class="iv-metric"><span class="iv-label">Foot traffic vs yesterday</span><span class="iv-val">↑ 12%</span></div>
-      <div class="iv-metric"><span class="iv-label">Conversion rate</span><span class="iv-val">34.2%</span></div>
-      <div class="iv-metric"><span class="iv-label">Low stock alerts</span><span class="iv-val" style="color:#f59e0b">3 SKUs</span></div>
-      <div class="iv-metric"><span class="iv-label">Top branch (revenue)</span><span class="iv-val">Riyadh Park</span></div>
-    </div>
   </div></div>
   <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg></div>
 </section>
@@ -183,14 +167,6 @@
 <!-- FINANCE -->
 <section id="finance" class="industry-section">
   <div class="container"><div class="industry-inner reveal">
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Risk Intelligence Dashboard</div>
-      <div class="iv-metric"><span class="iv-label">Transactions monitored today</span><span class="iv-val">1.4M</span></div>
-      <div class="iv-metric"><span class="iv-label">Fraud flags raised</span><span class="iv-val" style="color:#ef4444">7 alerts</span></div>
-      <div class="iv-metric"><span class="iv-label">False positive rate</span><span class="iv-val">0.3%</span></div>
-      <div class="iv-metric"><span class="iv-label">Compliance reports auto-filed</span><span class="iv-val">12 today</span></div>
-      <div class="iv-metric"><span class="iv-label">Portfolio risk score</span><span class="iv-val" style="color:#10b981">Low</span></div>
-    </div>
     <div>
       <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3A7BD5" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
       <span class="section-tag on-light">Finance &amp; Banking</span>
@@ -222,14 +198,6 @@
         <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Automated tenant reporting and contract renewal alerts</div></div>
       </div>
     </div>
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Portfolio Overview</div>
-      <div class="iv-metric"><span class="iv-label">Total units managed</span><span class="iv-val">1,240</span></div>
-      <div class="iv-metric"><span class="iv-label">Portfolio occupancy</span><span class="iv-val">91.4%</span></div>
-      <div class="iv-metric"><span class="iv-label">Leases expiring (30 days)</span><span class="iv-val" style="color:#f59e0b">18</span></div>
-      <div class="iv-metric"><span class="iv-label">Monthly revenue</span><span class="iv-val">SAR 3.8M</span></div>
-      <div class="iv-metric"><span class="iv-label">Maintenance requests open</span><span class="iv-val">24</span></div>
-    </div>
   </div></div>
   <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg></div>
 </section>
@@ -237,14 +205,6 @@
 <!-- HEALTHCARE -->
 <section id="healthcare" class="industry-section">
   <div class="container"><div class="industry-inner reveal">
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Operational Health Metrics</div>
-      <div class="iv-metric"><span class="iv-label">Beds occupied (current)</span><span class="iv-val">87%</span></div>
-      <div class="iv-metric"><span class="iv-label">Avg. wait time (Emergency)</span><span class="iv-val">18 min</span></div>
-      <div class="iv-metric"><span class="iv-label">Compliance reports filed</span><span class="iv-val">100%</span></div>
-      <div class="iv-metric"><span class="iv-label">Staff utilisation rate</span><span class="iv-val">76%</span></div>
-      <div class="iv-metric"><span class="iv-label">Capacity alerts today</span><span class="iv-val" style="color:#ef4444">2</span></div>
-    </div>
     <div>
       <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00D4E8" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
       <span class="section-tag on-light">Healthcare</span>
@@ -276,14 +236,6 @@
         <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Track material flow and identify bottlenecks that slow throughput</div></div>
       </div>
     </div>
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Production Floor Intelligence</div>
-      <div class="iv-metric"><span class="iv-label">Lines running (of 8)</span><span class="iv-val">7 active</span></div>
-      <div class="iv-metric"><span class="iv-label">Throughput vs target</span><span class="iv-val" style="color:#10b981">↑ 6.2%</span></div>
-      <div class="iv-metric"><span class="iv-label">Equipment alerts</span><span class="iv-val" style="color:#f59e0b">1 warning</span></div>
-      <div class="iv-metric"><span class="iv-label">Safety alerts today</span><span class="iv-val">0</span></div>
-      <div class="iv-metric"><span class="iv-label">Shift OEE</span><span class="iv-val">84%</span></div>
-    </div>
   </div></div>
   <div style="position:absolute;bottom:-2px;left:0;right:0;line-height:0"><svg viewBox="0 0 1440 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="width:100%;display:block"><path d="M0,40 C360,80 1080,0 1440,40 L1440,70 L0,70 Z" fill="#D8E2F5"/></svg></div>
 </section>
@@ -291,14 +243,6 @@
 <!-- LOGISTICS -->
 <section id="logistics" class="industry-section">
   <div class="container"><div class="industry-inner reveal">
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Supply Chain Live View</div>
-      <div class="iv-metric"><span class="iv-label">Active shipments</span><span class="iv-val">342</span></div>
-      <div class="iv-metric"><span class="iv-label">Delayed in transit</span><span class="iv-val" style="color:#ef4444">11</span></div>
-      <div class="iv-metric"><span class="iv-label">On-time delivery rate</span><span class="iv-val">96.8%</span></div>
-      <div class="iv-metric"><span class="iv-label">Warehouse utilisation</span><span class="iv-val">78%</span></div>
-      <div class="iv-metric"><span class="iv-label">Reorder alerts triggered</span><span class="iv-val">5 SKUs</span></div>
-    </div>
     <div>
       <div class="industry-icon-wrap"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6B4FBB" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
       <span class="section-tag on-light">Logistics &amp; Supply Chain</span>
@@ -329,14 +273,6 @@
         <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Identify peak hours and staff gaps automatically — before service degrades</div></div>
         <div class="use-case"><div class="use-case-dot"></div><div class="use-case-text">Cross-branch performance benchmarking to share what's working</div></div>
       </div>
-    </div>
-    <div class="industry-visual">
-      <div style="font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--soft-text);letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px">Branch Operations</div>
-      <div class="iv-metric"><span class="iv-label">Tables turned (lunch service)</span><span class="iv-val">48</span></div>
-      <div class="iv-metric"><span class="iv-label">Avg. service time</span><span class="iv-val">22 min</span></div>
-      <div class="iv-metric"><span class="iv-label">Guest satisfaction score</span><span class="iv-val" style="color:#10b981">4.7 / 5</span></div>
-      <div class="iv-metric"><span class="iv-label">Kitchen hygiene alerts</span><span class="iv-val">0</span></div>
-      <div class="iv-metric"><span class="iv-label">Understaffed periods today</span><span class="iv-val" style="color:#f59e0b">1 (14:00)</span></div>
     </div>
   </div></div>
 </section>
