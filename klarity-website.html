@@ -53,21 +53,21 @@
   .btn-primary:hover{opacity:.9;transform:translateY(-1px)}
 
   /* DATA INTELLIGENCE */
-  .data-intel-section{background:var(--navy);padding:110px 0;color:#fff;position:relative;overflow:hidden}
-  .data-intel-section::before{content:'';position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,232,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
-  .data-intel-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(107,79,187,.1) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .data-intel-section{background:var(--light-bg2);padding:110px 0;color:var(--dark-text);position:relative;overflow:hidden}
+  .data-intel-section::before{content:'';position:absolute;top:-150px;right:-150px;width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,232,.07) 0%,transparent 65%);border-radius:50%;pointer-events:none}
+  .data-intel-section::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(107,79,187,.06) 0%,transparent 65%);border-radius:50%;pointer-events:none}
   .data-intel-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;position:relative;z-index:1}
   .data-intel-left .section-sub{max-width:480px}
-  .data-intel-stats{display:flex;flex-direction:column;gap:24px;margin-top:44px;padding-top:36px;border-top:1px solid rgba(255,255,255,.09)}
+  .data-intel-stats{display:flex;flex-direction:column;gap:24px;margin-top:44px;padding-top:36px;border-top:1px solid var(--light-border)}
   .di-stat{display:flex;align-items:center;gap:20px}
-  .di-stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;min-width:70px}
-  .di-stat-label{font-size:.875rem;color:rgba(255,255,255,.55);line-height:1.5}
-  .di-card{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:22px 20px;transition:border-color .3s,background .3s;margin-bottom:14px}
+  .di-stat-num{font-family:'Syne',sans-serif;font-size:2rem;font-weight:700;background:var(--grad-text-dark);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;white-space:nowrap;min-width:70px}
+  .di-stat-label{font-size:.875rem;color:var(--mid-text);line-height:1.5}
+  .di-card{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--light-border);border-radius:14px;padding:22px 20px;transition:border-color .3s,box-shadow .3s;margin-bottom:14px}
   .di-card:last-child{margin-bottom:0}
-  .di-card:hover{border-color:rgba(0,212,232,.25);background:rgba(0,212,232,.05)}
-  .di-card-icon{width:40px;height:40px;border-radius:10px;background:rgba(0,212,232,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
-  .di-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:600;color:#fff;margin-bottom:6px}
-  .di-card-desc{font-size:.855rem;color:rgba(255,255,255,.58);line-height:1.65;margin:0}
+  .di-card:hover{border-color:rgba(0,212,232,.35);box-shadow:0 6px 24px rgba(0,212,232,.1)}
+  .di-card-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(0,212,232,.12),rgba(107,79,187,.08));border:1px solid rgba(0,212,232,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+  .di-card-title{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:600;color:var(--dark-text);margin-bottom:6px}
+  .di-card-desc{font-size:.855rem;color:var(--mid-text);line-height:1.65;margin:0}
 
   /* HERO — DARK */
   .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 60px 100px;overflow:hidden;background:var(--navy);color:#fff}
@@ -348,10 +348,10 @@
   <div class="container">
     <div class="data-intel-inner">
       <div class="data-intel-left reveal">
-        <span class="section-tag on-dark">Data Intelligence</span>
-        <h2 class="section-title light">Decisions made on gut feel<br>are costing you.</h2>
-        <p class="section-sub light">Every day your business generates thousands of data points — sales figures, customer behaviour, operational metrics, supply chain signals. Most organisations can't act on them fast enough. By the time a report is ready, the moment has passed.</p>
-        <p class="section-sub light" style="margin-top:16px">Klarity closes that gap. Our data intelligence engine processes your streams in real time, surfaces what actually matters, and delivers clear, actionable insight directly to the people who need it — no data team required.</p>
+        <span class="section-tag on-light">Data Intelligence</span>
+        <h2 class="section-title dark">Decisions made on gut feel<br>are costing you.</h2>
+        <p class="section-sub dark">Every day your business generates thousands of data points — sales figures, customer behaviour, operational metrics, supply chain signals. Most organisations can't act on them fast enough. By the time a report is ready, the moment has passed.</p>
+        <p class="section-sub dark" style="margin-top:16px">Klarity closes that gap. Our data intelligence engine processes your streams in real time, surfaces what actually matters, and delivers clear, actionable insight directly to the people who need it — no data team required.</p>
         <div class="data-intel-stats reveal" style="transition-delay:.2s">
           <div class="di-stat">
             <div class="di-stat-num">73%</div>
